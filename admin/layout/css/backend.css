@@ -1,0 +1,655 @@
+/* Start Main Rulez */
+
+body {
+  background-color: #f4f4f4;
+  font-size: 16px;
+}
+
+/* Start Items Table */
+.OOF {
+  width: 20px;
+}
+@media only screen and (max-width: 991px) {
+  .desc {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1199px) {
+  .delete {
+    margin-top: 10px;
+  }
+}
+
+/* End Items Table */
+
+.asterisk {
+  font-size: 30px;
+  position: absolute;
+  right: 30px;
+  top: 8px;
+  color: #d20707;
+}
+
+.nice-message {
+  padding: 10px;
+  background-color: #fff;
+  margin: 10px 0;
+  border-left: 5px solid #080;
+}
+
+.custom-file {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  height: 30px;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  width: 72%;
+}
+
+@media only screen and (min-width: 992px) {
+  .custom-file {
+    width: 47%;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .custom-file {
+    width: 82%;
+  }
+}
+
+.custom-file > span {
+  font-family: Tahoma, Arial;
+  width: 80%;
+  font-size: 14px;
+  padding: 5px 0 0 5px;
+  display: block;
+}
+
+.custom-file input[type="file"] {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 3;
+}
+
+.custom-file:after {
+  content: "Upload";
+  background-color: #337ab7;
+  border-radius: 20px;
+  color: #fff;
+  width: 80px;
+  height: 30px;
+  position: absolute;
+  top: 0;
+  right: 0px;
+  line-height: 29px;
+  text-align: center;
+  font-family: Tahoma, Arial;
+}
+/* End Main Rulez */
+
+/* Start Login Form */
+
+.login {
+  width: 300px;
+  margin: 100px auto;
+}
+
+.login .login-header {
+  position: relative;
+}
+
+.login .login-header i {
+  position: absolute;
+  color: #888;
+  font-size: 30px;
+  top: 7px;
+  left: 15px;
+}
+
+.login .login-header h4 {
+  color: #888;
+  font-size: 40px;
+  padding-left: 30px;
+}
+
+.login input[type="submit"] {
+  font-size: 26px;
+  text-align: center;
+  vertical-align: auto;
+}
+
+.login input {
+  margin-bottom: 10px;
+}
+
+.login .form-control {
+  background-color: #eaeaea;
+}
+
+.login .btn {
+  background-color: #008dde;
+}
+
+/* End Login Form */
+
+/* Start Bootstrap Edits */
+
+.navbar {
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
+.nav > li > a,
+.navbar-brand {
+  padding: 15px 12px;
+}
+
+.navbar-brand {
+  font-size: 1em;
+}
+
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:focus,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.dropdown-menu {
+  background-color: #3498db;
+}
+
+.dropdown-menu {
+  min-width: 180px;
+  padding: 0;
+  font-size: 1em;
+  border: none;
+  border-radius: 0;
+}
+
+.dropdown-menu > li > a {
+  color: #fff;
+  padding: 10px 15px;
+}
+
+.dropdown-menu > li > a:focus,
+.dropdown-menu > li > a:hover {
+  color: #fff;
+  background-color: #8e44ad;
+}
+
+.form-control {
+  position: relative;
+}
+
+/* End Bootstrap Edits */
+
+/* Start Dashboard Page */
+
+.home-stats .stat {
+  padding: 20px;
+  font-size: 15px;
+  color: #fff;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-stats .stat i {
+  position: absolute;
+  font-size: 80px;
+  top: 35px;
+  left: 30px;
+}
+
+.home-stats .stat .info {
+  float: right;
+}
+
+.home-stats .stat a {
+  color: #fff;
+}
+
+.home-stats .stat a:hover {
+  text-decoration: none;
+}
+
+.home-stats .stat span {
+  display: block;
+  font-size: 60px;
+}
+
+.home-stats .st-members {
+  background-color: #3498db;
+}
+
+.home-stats .st-pending {
+  background-color: #c0392b;
+}
+
+.home-stats .st-items {
+  background-color: #d35400;
+}
+
+.home-stats .st-comments {
+  background-color: #8e44ad;
+}
+
+.latest {
+  margin-top: 30px;
+}
+
+.latest .toggle-info {
+  color: #999;
+  cursor: pointer;
+}
+
+.latest .toggle-info:hover {
+  color: #444;
+}
+
+.latest-users {
+  margin-bottom: 0;
+}
+
+.latest-users li {
+  padding: 10px;
+  overflow: hidden;
+}
+
+.latest-users li:nth-child(odd) {
+  background-color: #eee;
+}
+
+.latest-users .btn-success,
+.latest-users .btn-info {
+  padding: 2px 8px;
+}
+
+.latest-users .btn-info {
+  margin-right: 5px;
+}
+
+.latest .comment-box {
+  margin: 5px 0 10px;
+  position: relative;
+}
+
+.latest .comment-box .member-n,
+.latest .comment-box .member-c {
+  float: left;
+}
+
+.latest .comment-box .member-n {
+  width: 80px;
+  text-align: center;
+  margin-right: 20px;
+  position: relative;
+  top: 10px;
+}
+
+.buttons-c {
+  margin-bottom: 10px;
+}
+
+.latest .comment-box .member-n a {
+  text-decoration: none;
+  font-weight: bolder;
+}
+
+.latest .comment-box .member-c {
+  width: calc(100% - 100px);
+  border-radius: 10px;
+  background-color: #efefef;
+  padding: 10px;
+  position: relative;
+}
+
+.latest .comment-box .member-c:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: -28px;
+  top: 5px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent #efefef transparent transparent;
+  border-width: 15px;
+}
+
+/* End Dashboard Page */
+
+/* Start Members Page */
+
+h1 {
+  font-size: 55px;
+  margin: 40px 0;
+  font-weight: bold;
+  color: #666;
+}
+
+.show-pass {
+  position: absolute;
+  top: 6px;
+  right: -30px;
+}
+
+.mange-items img,
+.manage-members img {
+  width: 50px;
+  height: 50px;
+}
+
+.main-table {
+  -webkit-box-shadow: 0 3px 10px #ccc;
+  -moz-box-shadow: 0 3px 10px #ccc;
+  box-shadow: 0 3px 10px #ccc;
+}
+
+.main-table td {
+  background-color: #fff;
+  vertical-align: middle !important;
+}
+
+.main-table tr:first-child td {
+  /* You Can Use Thead */
+  background-color: #333;
+  color: #fff;
+}
+
+.main-table .btn {
+  padding: 3px 10px;
+}
+
+.activate {
+  margin-left: 5px;
+}
+
+/* End Members Page */
+
+/* Start Category Page */
+
+.categories .panel-heading {
+  color: #959595;
+  font-weight: bold;
+}
+
+.categories .panel-heading i {
+  position: relative;
+  top: 1px;
+}
+
+.categories .panel-body {
+  padding: 0;
+}
+
+.categories .option a {
+  color: #888;
+  text-decoration: none;
+}
+
+.categories .option span {
+  color: #888;
+  cursor: pointer;
+}
+
+.categories .option .active {
+  color: #f00;
+}
+
+.categories hr {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.categories .cat {
+  padding: 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+.categories .cat:hover {
+  background-color: #eee;
+}
+
+.categories .cat:hover .hidden-buttons {
+  right: 10px;
+}
+
+.categories .cat .hidden-buttons {
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  position: absolute;
+  top: 15px;
+  right: -120px;
+}
+
+.categories .cat .hidden-buttons a {
+  margin-right: 5px;
+}
+
+.categories .cat h3 {
+  margin: 0;
+  cursor: pointer;
+  font-weight: bold;
+  color: #6a6a6a;
+}
+
+.categories .cat .full-view p {
+  margin: 10px 0;
+  color: #707070;
+}
+
+.categories .cat:last-of-type ~ hr {
+  display: none;
+}
+
+.categories .cat .cat-span {
+  color: #fff;
+  padding: 4px 6px;
+  margin-right: 6px;
+  border-radius: 6px;
+}
+
+.categories .cat .visibility {
+  background-color: #d35400;
+}
+
+.categories .cat .commenting {
+  background-color: #2c3e50;
+}
+
+.categories .cat .advertises {
+  background-color: #c0392b;
+}
+
+.categories .add-category {
+  margin-top: -10px;
+  margin-bottom: 30px;
+}
+
+.categories .child-head {
+  margin: 15px 0 10px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #22ab79;
+}
+
+.categories .child-cats {
+  margin: 0;
+}
+
+.categories .child-cats li {
+  margin-left: 15px;
+}
+
+.categories .child-cats li:before {
+  content: "- ";
+}
+
+.categories .show-delete {
+  color: #f00;
+  display: none;
+}
+
+/* End Category Page */
+
+/* Start Comment Page */
+@media only screen and (min-width: 1200px) {
+  .comment-content {
+    width: 400px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .comment-content {
+    width: 400px;
+  }
+
+  .approve {
+    margin-top: 5px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .comment-content {
+    width: 400px;
+  }
+
+  .edit,
+  .approve,
+  .delete {
+    margin: 5px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .comment-content {
+    width: 400px;
+  }
+
+  .edit,
+  .approve,
+  .delete {
+    margin: 5px;
+  }
+}
+/* End Comment Page */
+
+/* Start Orders Page */
+.orders-heading {
+  margin-top: 0px;
+}
+
+.invoice {
+  margin: 5px;
+  position: relative;
+}
+
+.invoice-links {
+  position: absolute;
+  right: 5px;
+  top: 23%;
+}
+/* End Orders Page */
+
+/* Start Invoice Page*/
+.invoice-img {
+	width: 100px !important;
+	height: 76px !important;
+	border-radius: 12% !important;
+}
+.text-danger strong {
+  color: #9f181c;
+}
+.receipt-main {
+  background: #ffffff none repeat scroll 0 0;
+  border-bottom: 12px solid #333333;
+  border-top: 12px solid #9f181c;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 40px 30px !important;
+  position: relative;
+  box-shadow: 0 1px 21px #acacac;
+  color: #333333;
+  font-family: open sans;
+}
+.receipt-main p {
+  color: #333333;
+  font-family: open sans;
+  line-height: 1.42857;
+}
+.receipt-footer h1 {
+  font-size: 15px;
+  font-weight: 400 !important;
+  margin: 0 !important;
+}
+.receipt-main::after {
+  background: #414143 none repeat scroll 0 0;
+  content: "";
+  height: 5px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: -13px;
+}
+.receipt-main thead {
+  background: #414143 none repeat scroll 0 0;
+}
+.receipt-main thead th {
+  color: #fff;
+}
+.receipt-right h5 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 0 7px 0;
+}
+.receipt-right p {
+  font-size: 12px;
+  margin: 0px;
+}
+.receipt-right p i {
+  text-align: center;
+  width: 18px;
+}
+.receipt-main td {
+  padding: 9px 20px !important;
+}
+.receipt-main th {
+  padding: 13px 20px !important;
+}
+.receipt-main td {
+  font-size: 13px;
+  font-weight: initial !important;
+}
+.receipt-main td p:last-child {
+  margin: 0;
+  padding: 0;
+}
+.receipt-main td h2 {
+  font-size: 20px;
+  font-weight: 900;
+  margin: 0;
+  text-transform: uppercase;
+}
+.receipt-header-mid .receipt-left h1 {
+  font-weight: 100;
+  margin: 34px 0 0;
+  text-align: right;
+  text-transform: uppercase;
+}
+.receipt-header-mid {
+  margin: 24px 0;
+  overflow: hidden;
+}
+
+#container {
+  background-color: #dcdcdc;
+}
+/* End Invoice Page */

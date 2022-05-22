@@ -1,0 +1,41 @@
+features to add :
+	
+	/* Start Done */
+	
+		- Contact Us Page													
+		- Design Footer 													
+		- Search Bar														
+		- Page To edit user informations									
+		- Uplaod User Avatar												
+		- Page To edit user informations									
+		- Upload Item Main Image											
+		- Count Of Each Item												
+		- Upload Multiple Item Images										
+		- Notifications														
+		- Add To Cart Button and Cart Page 									
+		- Payment page and buy button										
+		- Orders DB															
+		- Manage Orders [insert user orders - approve it from admin page]	
+		- Orders Page for admin												
+		- Page To Show Other Users Accounts									
+		- Show My Orders In User Profile									
+		- Invoice Page For admin and user [this page shows the details of a specific order] :
+		- Fix Error : Notice: unserialize(): Error at offset 253 of 255 bytes in D:\Programs\xampp\htdocs\eCommerce\invoice.php on line 25
+		- delete every item in items array when confirm payment
+		- decrease item count when buy it
+		- slider in home page 
+		- profile.php & otherprofile.php : add minize and maximize to all of panels
+		- index.php (user) : add panel for latest items and another panel for featured items (you need to let admin mark items as featured && add featured to items table DB)
+		
+	/* End Done */
+
+	
+	
+	- apply footer
+
+
+	- add real users and real items
+	- chnage slider photos
+	
+	- Support Arabic Language 				// Optional
+	
