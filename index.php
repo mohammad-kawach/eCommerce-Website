@@ -64,17 +64,17 @@
 
 		<!-- Slide 1 -->
 		<div class="item active">
-			<img src="slides/1.png" alt="Sunset over beach">
+			<img src="slides/black2.jpg" alt="Sunset over beach">
 		</div>
 
 		<!-- Slide 2 -->
 		<div class="item">
-			<img src="slides/2.jpg" alt="Rob Roy Glacier">
+			<img src="slides/photo_2021-06-30_17-19-34.jpg" alt="Rob Roy Glacier">
 		</div>
 
 		<!-- Slide 3 -->
 		<div class="item">
-			<img src="slides/3.jpg" alt="Longtail boats at Phi Phi">
+			<img src="slides/Yakkety_Yak_Wallpaper.jpg" alt="Longtail boats at Phi Phi">
 		</div>
 
 		</div>
