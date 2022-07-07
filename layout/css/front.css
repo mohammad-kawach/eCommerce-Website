@@ -535,6 +535,18 @@ h1 {
   top: 10px;
 }
 
+.comment-owner {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.comment-owner:hover {
+  text-decoration: none;
+}
+
+
+
 /* End Show Item Page */
 
 /* Start Our Custom */

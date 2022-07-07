@@ -267,9 +267,9 @@
 					<?php } ?>
 					<!--<img class="img-responsive img-thumbnail img-circle center-block" src="img.png" alt="" />-->
 					<?php if ($comment['user_id'] == $_SESSION['uid']) { ?>
-						<?php echo "<a href='profile.php'>" . $comment['Member'] . "</a>"; ?>
+						<?php echo "<a class='comment-owner' href='profile.php'>" . $comment['Member'] . "</a>"; ?>
 					<?php } else { ?>
-						<?php echo "<a href='otherProfile.php?otherid={$comment['user_id']}'>" . $comment['Member'] . "</a>"; ?>
+						<?php echo "<a class='comment-owner' href='otherProfile.php?otherid={$comment['user_id']}'>" . $comment['Member'] . "</a>"; ?>
 					<?php } ?>
 				</div>
 				<div class="col-sm-10">
