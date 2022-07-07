@@ -85,7 +85,7 @@
 		<form method="post" action="index.php?action=add&id=<?php echo $item['Item_ID'] ?>">
 			<div class="col-md-3">
 				<?php if (!empty($item['Image'])) { ?>
-					<img class="img-responsive img-thumbnail center-block item-image" src="<?php echo $ItemsDir . $item['Image']; ?>" alt="" />
+					<a href="<?php echo $ItemsDir . $item['Image']; ?>"><img class="img-responsive img-thumbnail center-block item-image" src="<?php echo $ItemsDir . $item['Image']; ?>" alt="" /></a>
 				<?php } else { ?>
 					<img class="img-responsive img-thumbnail center-block item-image" src="img.png" alt="" />
 				<?php } ?>
@@ -159,16 +159,16 @@
 		<h3 class="panel-heading gallery-heading">Gallery</h3>
 		<div class="panel-body">
 			<?php if (!empty($item['img1'])) { ?>
-				<img class="img-responsive col-sm-4 img-thumbnail gallery-image" src="<?php echo $ItemsDir . $item['img1']; ?>" alt="" />
+				<a href="<?php echo $ItemsDir . $item['img1']; ?>"><img class="img-responsive col-sm-8 col-md-4 img-thumbnail gallery-image" src="<?php echo $ItemsDir . $item['img1']; ?>" alt=""/></a>
 			<?php } ?>
 			<?php if (!empty($item['img2'])) { ?>
-				<img class="img-responsive col-sm-4 img-thumbnail gallery-image" src="<?php echo $ItemsDir . $item['img2']; ?>" alt="" />
+				<a href="<?php echo $ItemsDir . $item['img2']; ?>"><img class="img-responsive col-sm-6 col-md-4 img-thumbnail gallery-image" src="<?php echo $ItemsDir . $item['img2']; ?>" alt="" /></a>
 			<?php } ?>
 			<?php if (!empty($item['img3'])) { ?>
-				<img class="img-responsive col-sm-4 img-thumbnail gallery-image" src="<?php echo $ItemsDir . $item['img3']; ?>" alt="" />
+				<a href="<?php echo $ItemsDir . $item['img3']; ?>"><img class="img-responsive col-sm-6 col-md-4 img-thumbnail gallery-image" src="<?php echo $ItemsDir . $item['img3']; ?>" alt="" /></a>
 			<?php } ?>
 			<?php if (!empty($item['img4'])) { ?>
-				<img class="img-responsive col-sm-4 img-thumbnail gallery-image" src="<?php echo $ItemsDir . $item['img4']; ?>" alt="" />
+				<a href="<?php echo $ItemsDir . $item['img4']; ?>"><img class="img-responsive col-sm-6 col-md-4 img-thumbnail gallery-image" src="<?php echo $ItemsDir . $item['img4']; ?>" alt="" /></a>
 			<?php } ?>
 		</div>
 	</div>
@@ -266,7 +266,11 @@
 						<img class="img-responsive img-thumbnail img-circle center-block" src="img.png" alt="" />
 					<?php } ?>
 					<!--<img class="img-responsive img-thumbnail img-circle center-block" src="img.png" alt="" />-->
-					<?php echo $comment['Member'] ?>
+					<?php if ($comment['user_id'] == $_SESSION['uid']) { ?>
+						<?php echo "<a href='profile.php'>" . $comment['Member'] . "</a>"; ?>
+					<?php } else { ?>
+						<?php echo "<a href='otherProfile.php?otherid={$comment['user_id']}'>" . $comment['Member'] . "</a>"; ?>
+					<?php } ?>
 				</div>
 				<div class="col-sm-10">
 					<p class="lead"><?php echo $comment['comment'] ?></p>
