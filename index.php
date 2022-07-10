@@ -47,7 +47,7 @@
 
 <div class="container">
 
-<h1 class="text-center"><?php echo lang('Home_Page'); ?></h1>
+<h1 class="text-center">Welcome To <span class="shopify"><i class="fa fa-skyatlas" aria-hidden="true"></i> SHOPIFY</span></h1>
 	<!-- Start Slider -->
 	<!-- Carousel container -->
 	<div id="my-pics" class="carousel slide col-sm-12" data-ride="carousel" style="margin:auto;">
@@ -138,6 +138,8 @@
 											<input type="hidden" name="hidden_price" value="<?php echo $item['Price']; ?>" />
 											<input type="submit" name="add_to_cart" style="margin-bottom: 5px;" class="btn btn-primary btn-sm pull-right" value="Add To Cart" />
 										</div>
+										<?php } elseif ($_SESSION['uid'] == $item['Member_ID']) { ?>
+											<div class="owns" style="margin-top: 21.44px;">You Own This Item</div>
 										<?php } else { ?>
 											<div class="date" style="margin-top: 21.44px;"><?php echo $item['Add_Date']; ?></div>
 										<?php } ?>

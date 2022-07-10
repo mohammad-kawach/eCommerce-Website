@@ -96,6 +96,13 @@ body {
 /* End Main Rulez */
 
 /* Start Login Form */
+.header {
+  text-align: center;
+  font-size: 50px;
+  color: #008DDE;
+  opacity: 0.9;
+  font-weight: bold;
+}
 
 .login {
   width: 300px;
@@ -104,6 +111,7 @@ body {
 
 .login .login-header {
   position: relative;
+  margin-bottom: 25px;
 }
 
 .login .login-header i {
@@ -138,6 +146,17 @@ body {
   background-color: #008dde;
 }
 
+.copy-right {
+  text-align: center;
+  opacity: 0.6;
+  font-family: italic;
+}
+
+.shopify {
+  text-align: center;
+  color: #008DDE;
+  font-weight: bold;
+}
 /* End Login Form */
 
 /* Start Bootstrap Edits */

@@ -48,6 +48,7 @@
 
 ?>
 
+	<h1 class="header"><i class="fa fa-skyatlas" aria-hidden="true"></i> SHOPIFY</h1>
 	<form class="login" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
 		<div class="login-header">
 			<i class="fa fa-users"></i>
@@ -57,5 +58,8 @@
 		<input class="form-control input-lg" type="password" name="pass" placeholder="Password" autocomplete="new-password" />
 		<input class="btn btn-primary btn-block input-lg" type="submit" value="Login" />
 	</form>
+	<div class="copy-right">
+		&copy; 2022 <span class="shopify"><i class="fa fa-skyatlas" aria-hidden="true"></i> SHOPIFY</span> All Right Reserved
+	</div>
 
 <?php include $tpl . 'footer.php'; ?>

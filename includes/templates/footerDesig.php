@@ -6,7 +6,7 @@
   <div class="container">
     <div class="content">
       <div class="copy-right pull-left">
-        &copy; 2022 <span>eCommerce</span> All Right Reserved
+        &copy; 2022 <span><i class="fa fa-skyatlas" aria-hidden="true"></i> SHOPIFY</span> All Right Reserved
       </div>
       <div class="social pull-right">
         <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter-square fa-fw"></i></a>

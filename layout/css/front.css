@@ -397,6 +397,14 @@ h1 {
   font-weight: bold;
 }
 
+.thumbnail .owns {
+  cursor: default;
+  text-align: center;
+  font-size: 13px;
+  color: #ccc;
+  font-weight: bold;
+}
+
 .information .btn {
   margin-top: 10px;
 }
@@ -620,6 +628,11 @@ h1 {
 /* End Contact Us Page */
 
 /* Start Index Page */
+.shopify {
+  font-weight: bold;
+  color: #337ab7;
+}
+
 .OOF {
   position: absolute;
   border-radius: 0 7px 7px 0;

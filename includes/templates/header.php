@@ -100,7 +100,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index.php"><?php echo lang('Home_Page'); ?></a>
+				<a class="navbar-brand" href="index.php"><i class="fa fa-skyatlas" aria-hidden="true"></i> SHOPIFY</a>
 					<form class="navbar-form navbar-left" action="searchPage.php" method="POST">
 						<div class="form-group">
 							<input type="text" name="searchInput" class="form-control" placeholder="Search" />
