@@ -138,7 +138,7 @@
 											<input type="hidden" name="hidden_price" value="<?php echo $item['Price']; ?>" />
 											<input type="submit" name="add_to_cart" style="margin-bottom: 5px;" class="btn btn-primary btn-sm pull-right" value="Add To Cart" />
 										</div>
-										<?php } elseif ($_SESSION['uid'] == $item['Member_ID']) { ?>
+										<?php } elseif (isset($_SESSION['uid']) && $_SESSION['uid'] == $item['Member_ID']) { ?>
 											<div class="owns" style="margin-top: 21.44px;">You Own This Item</div>
 										<?php } else { ?>
 											<div class="date" style="margin-top: 21.44px;"><?php echo $item['Add_Date']; ?></div>
