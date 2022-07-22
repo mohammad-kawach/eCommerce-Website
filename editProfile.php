@@ -101,8 +101,8 @@ if ($count > 0) {
     </div>
 		<!-- New Avatar -->
     <div>
-			<div class="custom-file custom-file2 input-container">
-				<span>Choose Your Avatar</span>
+			<div class="custom-file custom-file3 input-container">
+				<span>Choose Your New Avatar</span>
 				<input type="file" name="newavatar" class="form-control" />
 			</div>
 		</div>
