@@ -53,6 +53,10 @@ body {
   .custom-file {
     width: 47%;
   }
+
+  .custom-file2 {
+    width: 49%;
+  }
 }
 
 @media only screen and (max-width: 991px) {
@@ -387,6 +391,18 @@ h1 {
 
 .activate {
   margin-left: 5px;
+}
+
+@media only screen and (max-width: 1199px) {
+  .edit-btn ,
+  .delete-btn {
+    margin-bottom: 10px;
+  }
+}
+
+.new-member-btn ,
+.new-item-btn {
+  margin-bottom: 15px;
 }
 
 /* End Members Page */

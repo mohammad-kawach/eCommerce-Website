@@ -103,7 +103,7 @@
 						<tr>
 					</table>
 				</div>
-				<a href="items.php?do=Add" class="btn btn-sm btn-primary">
+				<a href="items.php?do=Add" class="btn btn-primary new-item-btn">
 					<i class="fa fa-plus"></i> New Item
 				</a>
 			</div>
