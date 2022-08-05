@@ -488,12 +488,37 @@
 				// If There's Such ID Show The Form
 
 				if ($check > 0) {
+					//$cats = $stmt2->fetchAll(); 
 
-					$stmt = $con->prepare("DELETE FROM categories WHERE ID = :zid");
+					$stmt0 = $con->prepare("SELECT Item_ID FROM items WHERE Cat_ID = ?");
 
-					$stmt->bindParam(":zid", $catid);
+					//$stmt1->bindParam(":zcatid", $catid);
 
-					$stmt->execute();
+					$stmt0->execute(array($catid));
+
+					$item_id = $stmt0->fetchAll(); 
+					
+					foreach ($item_id as $theItemID) {
+						$stmt01 = $con->prepare("DELETE FROM notifications WHERE item_id = ?");
+
+						//$stmt1->bindParam(":zcatid", $catid);
+	
+						$stmt01->execute(array($theItemID['Item_ID']));
+					}
+
+					$stmt1 = $con->prepare("DELETE FROM items WHERE Cat_ID = ?");
+
+					//$stmt1->bindParam(":zcatid", $catid);
+
+					$stmt1->execute(array($catid));
+					
+					/* ----------------------------------------------------------------- */
+
+					$stmt = $con->prepare("DELETE FROM categories WHERE ID = ?");
+
+					//$stmt->bindParam(":zid", $catid);
+
+					$stmt->execute(array($catid));
 
 					$theMsg = "<div class='alert alert-success'>" . $stmt->rowCount() . ' Record Deleted</div>';
 

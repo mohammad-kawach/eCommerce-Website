@@ -1189,6 +1189,22 @@
 
 				if ($check > 0) {
 
+					$stmt0 = $con->prepare("DELETE FROM comments WHERE item_id = :zid");
+
+					$stmt0->bindParam(":zid", $itemid);
+
+					$stmt0->execute();
+
+					/* ---------------------------------------------------------------- */
+
+					$stmt1 = $con->prepare("DELETE FROM notifications WHERE item_id = :zid");
+
+					$stmt1->bindParam(":zid", $itemid);
+
+					$stmt1->execute();
+
+					/* ---------------------------------------------------------------- */
+
 					$stmt = $con->prepare("DELETE FROM items WHERE Item_ID = :zid");
 
 					$stmt->bindParam(":zid", $itemid);

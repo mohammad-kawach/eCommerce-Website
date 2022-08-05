@@ -555,6 +555,38 @@
 
 				if ($check > 0) {
 
+					$stmt0 = $con->prepare("DELETE FROM comments WHERE user_id = :zuser");
+
+					$stmt0->bindParam(":zuser", $userid);
+
+					$stmt0->execute();
+
+					/* ------------------------------------------------------------------------------ */
+
+					$stmt1 = $con->prepare("DELETE FROM items WHERE Member_ID = :zuser");
+
+					$stmt1->bindParam(":zuser", $userid);
+
+					$stmt1->execute();
+
+					/* ------------------------------------------------------------------------------ */
+
+					$stmt2 = $con->prepare("DELETE FROM notifications WHERE u_id = :zuser");
+
+					$stmt2->bindParam(":zuser", $userid);
+
+					$stmt2->execute();
+
+					/* ------------------------------------------------------------------------------ */
+
+					$stmt3 = $con->prepare("DELETE FROM orders WHERE user_id = :zuser");
+
+					$stmt3->bindParam(":zuser", $userid);
+
+					$stmt3->execute();
+
+					/* ------------------------------------------------------------------------------ */
+
 					$stmt = $con->prepare("DELETE FROM users WHERE UserID = :zuser");
 
 					$stmt->bindParam(":zuser", $userid);
