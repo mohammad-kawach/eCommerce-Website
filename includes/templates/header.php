@@ -58,22 +58,26 @@
 
 					<div class="notis-rect"></div>
 					<ul class="dropdown-menu user-dropdown notifications-dropdown">
-						<?php foreach ($notis as $noti) { ?>
-							<?php if ($notisCount > 0) { ?>
-								<?php if (!empty($noti['item_id']) && empty($noti['out_of_stock'])) { ?>
-									<li><a class="user-link" href="items.php?itemid=<?php echo $noti['item_id']; ?>"><i class="fa fa-check" aria-hidden="true"></i> | your item has approved</a></li>
-								<?php } elseif (!empty($noti['user_approve'])) { ?>
-									<li><a class="user-link" href="profile.php"><i class="fa fa-thumbs-up" aria-hidden="true"></i> | your account has been activated</a></li>
-								<?php } elseif (!empty($noti['comm_id'])) { ?>
-									<li><a class="user-link" href="#"><i class="fa fa-check" aria-hidden="true"></i> | your comment has been approved</a></li>
-								<?php } elseif (!empty($noti['order_id'])) { ?>
-									<li><a class="user-link" href="invoice.php?orderid=<?php echo $noti['order_id']; ?>"><i class="fa fa-car" aria-hidden="true"></i> | your Order has been approved</a></li>
-								<?php } elseif (!empty($noti['out_of_stock']) && $noti['out_of_stock'] == 1) { ?>
-									<li><a class="user-link" href="editItem.php?Itemid=<?php echo $noti['item_id']; ?>"><i class="fa fa-info" aria-hidden="true"></i> | your item is out of stock</a></li>
+						<?php if (!empty($notisCount)) { ?>
+							<?php foreach ($notis as $noti) { ?>
+								<?php if ($notisCount > 0) { ?>
+									<?php if (!empty($noti['item_id']) && empty($noti['out_of_stock'])) { ?>
+										<li><a class="user-link" href="items.php?itemid=<?php echo $noti['item_id']; ?>"><i class="fa fa-check" aria-hidden="true"></i> | your item has approved</a></li>
+									<?php } elseif (!empty($noti['user_approve'])) { ?>
+										<li><a class="user-link" href="profile.php"><i class="fa fa-thumbs-up" aria-hidden="true"></i> | your account has been activated</a></li>
+									<?php } elseif (!empty($noti['comm_id'])) { ?>
+										<li><a class="user-link" href="#"><i class="fa fa-check" aria-hidden="true"></i> | your comment has been approved</a></li>
+									<?php } elseif (!empty($noti['order_id'])) { ?>
+										<li><a class="user-link" href="invoice.php?orderid=<?php echo $noti['order_id']; ?>"><i class="fa fa-car" aria-hidden="true"></i> | your Order has been approved</a></li>
+									<?php } elseif (!empty($noti['out_of_stock']) && $noti['out_of_stock'] == 1) { ?>
+										<li><a class="user-link" href="editItem.php?Itemid=<?php echo $noti['item_id']; ?>"><i class="fa fa-info" aria-hidden="true"></i> | your item is out of stock</a></li>
+									<?php } ?>
+								<?php } elseif ($notisCount == 0) { ?>
+									<li><a class="user-link" href="#">your account has not activated yet</a></li>
 								<?php } ?>
-							<?php } elseif ($notisCount == 0) { ?>
-								<li><a class="user-link" href="#">your account has not activated yet</a></li>
 							<?php } ?>
+						<?php } else { ?>
+							<li><a class="user-link" href="">you have no notifications yet</a></li>
 						<?php } ?>
 					</ul>
 				</div>

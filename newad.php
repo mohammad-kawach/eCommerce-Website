@@ -86,7 +86,7 @@
 			$country 			= filter_var($_POST['country'], FILTER_SANITIZE_STRING);
 			$status 			= filter_var($_POST['status'], FILTER_SANITIZE_NUMBER_INT);
 			$category 		= filter_var($_POST['category'], FILTER_SANITIZE_NUMBER_INT);
-			$subcategory 	= filter_var($_POST['subcategory'], FILTER_SANITIZE_NUMBER_INT);
+			//$subcategory 	= filter_var($_POST['subcategory'], FILTER_SANITIZE_NUMBER_INT);
 			$tags 				= filter_var($_POST['tags'], FILTER_SANITIZE_STRING);
 			$count 				= filter_var($_POST['count'], FILTER_SANITIZE_NUMBER_INT);
 
@@ -217,8 +217,8 @@
 
 				// Insert Userinfo In Database
 				$stmt = $con->prepare("INSERT INTO 
-				items(Name, Description, Price, Country_Made, Image, Status, Add_Date, Cat_ID, Member_ID, tags, Count, img1, img2, img3, img4)
-				VALUES(:zname, :zdesc, :zprice, :zcountry, :zavatar, :zstatus, now(), :zcat, :zmember, :ztags, :zcount, :zimg1, :zimg2, :zimg3, :zimg3)");
+				items(Name, Description, Price, Country_Made, Image, Status, Approve, Add_Date, Cat_ID, Member_ID, tags, Count, img1, img2, img3, img4)
+				VALUES(:zname, :zdesc, :zprice, :zcountry, :zavatar, :zstatus, 1, now(), :zcat, :zmember, :ztags, :zcount, :zimg1, :zimg2, :zimg3, :zimg4)");
 
 				$stmt->execute(array(
 				'zname' 		=> $name,
@@ -348,6 +348,7 @@
 							</div>
 							<!-- End Categories Field -->
 							<!-- Start SubCategories Field -->
+							<!--
 							<div class="form-group form-group-lg">
 								<label class="col-sm-1 control-label">Subcategory</label>
 								<div class="col-sm-offset-1 col-sm-10 col-md-9">
@@ -362,6 +363,7 @@
 									</select>
 								</div>
 							</div>
+							-->
 							<!-- End SubCategories Field -->
 							<!-- Start Avatar Field -->
 							<div class="form-group form-group-lg" style="margin-top:20px;">

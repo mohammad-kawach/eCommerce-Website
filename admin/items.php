@@ -89,7 +89,8 @@
 									
 									echo "<td>
 										<a href='items.php?do=Edit&itemid=" . $item['Item_ID'] . "' class='btn btn-success'><i class='fa fa-edit'></i> Edit</a>
-										<a href='items.php?do=Delete&itemid=" . $item['Item_ID'] . "' class='btn btn-danger confirm delete'><i class='fa fa-close'></i> Delete </a>";
+										<a href='items.php?do=Delete&itemid=" . $item['Item_ID'] . "' class='btn btn-danger confirm delete'><i class='fa fa-close'></i> Delete </a>
+										<a href='../items.php?itemid=" . $item['Item_ID'] . "' target='_blank' class='btn btn-primary'><i class='fa fa-eye'></i> Show </a>";
 										if ($item['Approve'] == 0) {
 											echo "<a 
 													href='items.php?do=Approve&itemid=" . $item['Item_ID'] . "' 
