@@ -914,8 +914,13 @@
 
 				// Fetch The Data
 				$row = $stmt->fetch();
+				$avatar2 = "";
+				$image1 = "";
+				$image2 = "";
+				$image3 = "";
+				$image4 = "";
 
-				if (isset($_FILES['avatar2']) && (substr($row['Image'], 0, 10) == $_FILES['avatar2'] || empty($row['Image']))) {
+				if (isset($_FILES['main-image2']) && substr($row['Image'], 0, 10) != substr($_FILES['main-image2']['name'], 0, 10)) {
 
 					// Upload Variables
 					$avatarName = $_FILES['main-image2']['name'];
@@ -930,6 +935,7 @@
 					$explode 					= explode('.', $avatarName);
 					$end 							= end($explode);
 					$avatarExtension 	= strtolower($end);
+
 					$avatar2 = rand(0, 10000000000) . '_' . $avatarName;
 					move_uploaded_file($avatarTmp, $ItemsDir	 . $avatar2);
 				} else {
@@ -951,7 +957,7 @@
 					move_uploaded_file($image4Tmp, $ItemsDir	 . $image4);
 				*/
 
-				if (isset($_FILES['image1']) && (substr($row['img1'], 0, 10) == $_FILES['image1'] || empty($row['img1']))) {
+				if (isset($_FILES['image1']) && substr($row['img1'], 0, 10) != substr($_FILES['image1']['name'], 0, 10)) {
 					// Upload Variables
 					$image1Name = $_FILES['image1']['name'];
 					$image1Size = $_FILES['image1']['size'];
@@ -969,10 +975,10 @@
 					$image1 = rand(0, 10000000000) . '_' . $image1Name;
 					move_uploaded_file($image1Tmp, $ItemsDir	 . $image1);
 				} else {
-					$avatar2 = $row['img1'];
+					$image1 = $row['img1'];
 				}
 				/* ------------------------------------------------------------------ */
-				if (isset($_FILES['image2']) && (substr($row['img2'], 0, 10) == $_FILES['image2'] || empty($row['img2']))) {
+				if (isset($_FILES['image2']) && substr($row['img2'], 0, 10) != substr($_FILES['image2']['name'], 0, 10)) {
 					// Upload Variables
 					$image2Name = $_FILES['image2']['name'];
 					$image2Size = $_FILES['image2']['size'];
@@ -986,11 +992,14 @@
 					$image2Explode 		= explode('.', $image2Name);
 					$image2End 				= end($image2Explode);
 					$image2Extension 	= strtolower($image2End);
+
+					$image2 = rand(0, 10000000000) . '_' . $image2Name;
+					move_uploaded_file($image2Tmp, $ItemsDir	 . $image2);
 				} else {
-					$avatar2 = $row['img2'];
+					$image2 = $row['img2'];
 				}
 				/* ------------------------------------------------------------------ */
-				if (isset($_FILES['image3']) && (substr($row['img3'], 0, 10) == $_FILES['image3'] || empty($row['img3']))) {
+				if (isset($_FILES['image3']) && substr($row['img3'], 0, 10) != substr($_FILES['image3']['name'], 0, 10)) {
 					// Upload Variables
 					$image3Name = $_FILES['image3']['name'];
 					$image3Size = $_FILES['image3']['size'];
@@ -1004,11 +1013,14 @@
 					$image3Explode 		= explode('.', $image3Name);
 					$image3End 				= end($image3Explode);
 					$image3Extension 	= strtolower($image3End);
+
+					$image3 = rand(0, 10000000000) . '_' . $image3Name;
+					move_uploaded_file($image3Tmp, $ItemsDir	 . $image3);
 				} else {
-					$avatar2 = $row['img3'];
+					$image3 = $row['img3'];
 				}
 				/* ------------------------------------------------------------------ */
-				if (isset($_FILES['image4']) && (substr($row['img4'], 0, 10) == $_FILES['image4'] || empty($row['img4']))) {
+				if (isset($_FILES['image4']) && substr($row['img4'], 0, 10) != substr($_FILES['image4']['name'], 0, 10)) {
 					// Upload Variables
 					$image4Name = $_FILES['image4']['name'];
 					$image4Size = $_FILES['image4']['size'];
@@ -1022,8 +1034,11 @@
 					$image4Explode 		= explode('.', $image4Name);
 					$image4End 				= end($image4Explode);
 					$image4Extension 	= strtolower($image4End);
+
+					$image4 = rand(0, 10000000000) . '_' . $image4Name;
+					move_uploaded_file($image4Tmp, $ItemsDir	 . $image4);
 				} else {
-					$avatar2 = $row['img4'];
+					$image4 = $row['img4'];
 				}
 				/* ------------------------------------------------------------------ */
 
@@ -1089,13 +1104,8 @@
 				// Check If There's No Error Proceed The Update Operation
 
 				if (empty($formErrors)) {
-
-					
-
-
-
-					if (!empty($avatarName) && empty($image1) && empty($image2) && empty($image3) && empty($image4)) {
-						// Update The Database With This Info
+					// Update The Database With This Info
+					if (!empty($avatarName) && empty($image1Name) && empty($image2Name) && empty($image3Name) && empty($image4Name)) {
 						$stmt = $con->prepare("UPDATE 
 																		items 
 																	SET 
@@ -1116,6 +1126,10 @@
 
 						$stmt->execute(array($name, $desc, $price, $country, $avatar2, $status, $cat, $member, $tags, $count, $feat, $id));
 
+						// Echo Success Message
+						$theMsg = "<div class='alert alert-success'>" . $stmt->rowCount() . ' Record Updated</div>';
+
+						redirectHome($theMsg, 'back');
 					} elseif (!empty($avatarName) && !empty($image1) && !empty($image2) && !empty($image3) && !empty($image4)) {
 						// Update The Database With This Info
 						$stmt = $con->prepare("UPDATE 
@@ -1139,66 +1153,12 @@
 																	WHERE 
 																		Item_ID 			= ?"
 																	);
-
 						$stmt->execute(array($name, $desc, $price, $country, $avatar2, $status, $cat, $member, $tags, $count, $image1, $image2, $image3, $image4, $feat, $id));
+						// Echo Success Message
+						$theMsg = "<div class='alert alert-success'>" . $stmt->rowCount() . ' Record Updated</div>';
 
-					} elseif(empty($avatarName) && !empty($image1) && !empty($image2) && !empty($image3) && !empty($image4)) {
-
-						// Update The Database With This Info
-						$stmt = $con->prepare("UPDATE 
-																			items 
-																		SET 
-																			Name 					= ?, 
-																			Description 	= ?, 
-																			Price 				= ?, 
-																			Country_Made 	= ?,
-																			Status 				= ?,
-																			Cat_ID 				= ?,
-																			Member_ID 		= ?,
-																			tags 					= ?,
-																			Count 				= ?,
-																			img1					= ?,
-																			img2					= ?,
-																			img3					= ?,
-																			img4					= ?,
-																			Featured			= ?
-																		WHERE 
-																			Item_ID 			= ?"
-																		);
-
-						$stmt->execute(array($name, $desc, $price, $country, $status, $cat, $member, $tags, $count, $image1, $image2, $image3, $image4, $feat, $id));
-
-
-					} elseif(empty($avatarName) && empty($image1) && empty($image2) && empty($image3) && empty($image4)) {
-
-						// Update The Database With This Info
-						$stmt = $con->prepare("UPDATE 
-																			items 
-																		SET 
-																			Name 					= ?, 
-																			Description 	= ?, 
-																			Price 				= ?, 
-																			Country_Made 	= ?,
-																			Status 				= ?,
-																			Cat_ID 				= ?,
-																			Member_ID 		= ?,
-																			tags 					= ?,
-																			Count 				= ?,
-																			Featured			= ?
-																		WHERE 
-																			Item_ID 			= ?"
-																		);
-
-						$stmt->execute(array($name, $desc, $price, $country, $status, $cat, $member, $tags, $count, $feat, $id));
-
-
-					}
-					
-					// Echo Success Message
-
-					$theMsg = "<div class='alert alert-success'>" . $stmt->rowCount() . ' Record Updated</div>';
-
-					redirectHome($theMsg, 'back');
+						redirectHome($theMsg, 'back');
+					} 
 
 				}
 
