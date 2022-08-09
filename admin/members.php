@@ -71,14 +71,14 @@
 											<img src="<?php echo $avDir . $row['avatar'] ?>" alt='' />
 										<?php }
 									echo "</td>";
-
 									echo "<td>" . $row['Username'] . "</td>";
 									echo "<td>" . $row['Email'] . "</td>";
 									echo "<td>" . $row['FullName'] . "</td>";
 									echo "<td>" . $row['Date'] ."</td>";
-									echo "<td>
+									echo "<td> 
 										<a href='members.php?do=Edit&userid=" . $row['UserID'] . "' class='btn btn-success edit-btn'><i class='fa fa-edit'></i> Edit</a>
-										<a href='members.php?do=Delete&userid=" . $row['UserID'] . "' class='btn btn-danger confirm delete-btn'><i class='fa fa-close'></i> Delete </a>";
+										<a href='members.php?do=Delete&userid=" . $row['UserID'] . "' class='btn btn-danger confirm delete-btn'><i class='fa fa-close'></i> Delete </a>
+										<a href='../otherProfile.php?otherid=" . $row['UserID'] . "' target='_blank' class='btn btn-primary'><i class='fa fa-eye'></i> Show </a>";
 										if ($row['RegStatus'] == 0) {
 											echo "<a 
 													href='members.php?do=Activate&userid=" . $row['UserID'] . "' 
@@ -394,7 +394,7 @@
 							<label class="col-sm-2 control-label">User Avatar</label>
 							<div class="col-sm-10 col-md-6 custom-file custom-file2">
 								<span>Choose Your File</span>
-								<input type="file" name="avatar2" class="form-control" required="required" />
+								<input type="file" value="<?php echo $row['avatar'] ?>" name="avatar2" class="form-control" />
 							</div>
 						</div>
 						<!-- End Avatar Field -->
@@ -430,26 +430,46 @@
 			echo "<div class='container'>";
 
 			if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+				$userid = $_POST['userid'];
 
-				// Upload Variables
-				$avatarName = $_FILES['avatar2']['name'];
-				$avatarSize = $_FILES['avatar2']['size'];
-				$avatarTmp	= $_FILES['avatar2']['tmp_name'];
-				$avatarType = $_FILES['avatar2']['type'];
+				// Select All Data Depend On This ID
+				$stmt = $con->prepare("SELECT * FROM users WHERE UserID = ? LIMIT 1");
 
-				// List Of Allowed File Typed To Upload
-				$avatarAllowedExtension = array("jpeg", "jpg", "png", "gif");
+				// Execute Query
+				$stmt->execute(array($userid));
 
-				// Get Avatar Extension
-				$explode 					= explode('.', $avatarName);
-				$end 							= end($explode);
-				$avatarExtension 	= strtolower($end);
+				// Fetch The Data
+				$row = $stmt->fetch();
+
+				if (isset($_FILES['avatar2']) && (substr($row['avatar'], 0, 10) == $_FILES['avatar2'] || empty($row['avatar']))) {
+					// Upload Variables
+					$avatarName = $_FILES['avatar2']['name'];
+					$avatarSize = $_FILES['avatar2']['size'];
+					$avatarTmp	= $_FILES['avatar2']['tmp_name'];
+					$avatarType = $_FILES['avatar2']['type'];
+
+					// List Of Allowed File Typed To Upload
+					$avatarAllowedExtension = array("jpeg", "jpg", "png", "gif");
+
+					// Get Avatar Extension
+					$explode 					= explode('.', $avatarName);
+					$end 							= end($explode);
+					$avatarExtension 	= strtolower($end);
+
+					$avatar2 = rand(0, 10000000000) . '_' . $avatarName;
+
+					move_uploaded_file($avatarTmp, "uploads\avatars\\" . $avatar2);
+				} else {
+					$avatar2 = $row['avatar'];
+				}
 
 				// Get Variables From The Form
 				$id 		= $_POST['userid'];
 				$user 	= $_POST['username'];
 				$email 	= $_POST['email'];
 				$name 	= $_POST['full'];
+
+				
 
 				// Password Trick
 				$pass = empty($_POST['newpassword']) ? $_POST['oldpassword'] : sha1($_POST['newpassword']);
@@ -487,9 +507,7 @@
 
 				if (empty($formErrors)) {
 
-					$avatar2 = rand(0, 10000000000) . '_' . $avatarName;
-
-					move_uploaded_file($avatarTmp, "uploads\avatars\\" . $avatar2);
+					
 
 					$stmt2 = $con->prepare("SELECT 
 												*
