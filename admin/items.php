@@ -1158,7 +1158,61 @@
 						$theMsg = "<div class='alert alert-success'>" . $stmt->rowCount() . ' Record Updated</div>';
 
 						redirectHome($theMsg, 'back');
-					} 
+					
+					} elseif(empty($avatarName) && !empty($image1Name) && !empty($image2Name) && !empty($image3Name) && !empty($image4Name)) {
+						// Update The Database With This Info
+						$stmt = $con->prepare("UPDATE 
+																			items 
+																		SET 
+																			Name 					= ?, 
+																			Description 	= ?, 
+																			Price 				= ?, 
+																			Country_Made 	= ?,
+																			Status 				= ?,
+																			Cat_ID 				= ?,
+																			Member_ID 		= ?,
+																			tags 					= ?,
+																			Count 				= ?,
+																			img1					= ?,
+																			img2					= ?,
+																			img3					= ?,
+																			img4					= ?,
+																			Featured			= ?
+																		WHERE 
+																			Item_ID 			= ?"
+																		);
+						$stmt->execute(array($name, $desc, $price, $country, $status, $cat, $member, $tags, $count, $image1, $image2, $image3, $image4, $feat, $id));
+						
+						// Echo Success Message
+						$theMsg = "<div class='alert alert-success'>" . $stmt->rowCount() . ' Record Updated</div>';
+
+						redirectHome($theMsg, 'back');
+						
+					} elseif(empty($avatarName) && empty($image1Name) && empty($image2Name) && empty($image3Name) && empty($image4Name)) {
+						// Update The Database With This Info
+						$stmt = $con->prepare("UPDATE 
+																			items 
+																		SET 
+																			Name 					= ?, 
+																			Description 	= ?, 
+																			Price 				= ?, 
+																			Country_Made 	= ?,
+																			Status 				= ?,
+																			Cat_ID 				= ?,
+																			Member_ID 		= ?,
+																			tags 					= ?,
+																			Count 				= ?,
+																			Featured			= ?
+																		WHERE 
+																			Item_ID 			= ?"
+																		);
+						$stmt->execute(array($name, $desc, $price, $country, $status, $cat, $member, $tags, $count, $feat, $id));
+
+						// Echo Success Message
+						$theMsg = "<div class='alert alert-success'>" . $stmt->rowCount() . ' Record Updated</div>';
+
+						redirectHome($theMsg, 'back');
+					}
 
 				}
 
