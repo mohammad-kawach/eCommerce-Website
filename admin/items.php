@@ -904,76 +904,127 @@
 			echo "<div class='container'>";
 
 			if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+				$itemid = $_POST['itemid'];
 
-				// Upload Variables
-				$avatarName = $_FILES['main-image2']['name'];
-				$avatarSize = $_FILES['main-image2']['size'];
-				$avatarTmp	= $_FILES['main-image2']['tmp_name'];
-				$avatarType = $_FILES['main-image2']['type'];
+				// Select All Data Depend On This ID
+				$stmt = $con->prepare("SELECT * FROM items WHERE Item_ID = ? LIMIT 1");
 
-				// List Of Allowed File Typed To Upload
-				$avatarAllowedExtension = array("jpeg", "jpg", "png", "gif");
+				// Execute Query
+				$stmt->execute(array($itemid));
 
-				// Get Avatar Extension
-				$explode 					= explode('.', $avatarName);
-				$end 							= end($explode);
-				$avatarExtension 	= strtolower($end);
+				// Fetch The Data
+				$row = $stmt->fetch();
+
+				if (isset($_FILES['avatar2']) && (substr($row['Image'], 0, 10) == $_FILES['avatar2'] || empty($row['Image']))) {
+
+					// Upload Variables
+					$avatarName = $_FILES['main-image2']['name'];
+					$avatarSize = $_FILES['main-image2']['size'];
+					$avatarTmp	= $_FILES['main-image2']['tmp_name'];
+					$avatarType = $_FILES['main-image2']['type'];
+
+					// List Of Allowed File Typed To Upload
+					$avatarAllowedExtension = array("jpeg", "jpg", "png", "gif");
+
+					// Get Avatar Extension
+					$explode 					= explode('.', $avatarName);
+					$end 							= end($explode);
+					$avatarExtension 	= strtolower($end);
+					$avatar2 = rand(0, 10000000000) . '_' . $avatarName;
+					move_uploaded_file($avatarTmp, $ItemsDir	 . $avatar2);
+				} else {
+					$avatar2 = $row['Image'];
+				}
 				/* ------------------------------------------------------------------ */
-				// Upload Variables
-				$image1Name = $_FILES['image1']['name'];
-				$image1Size = $_FILES['image1']['size'];
-				$image1Tmp	= $_FILES['image1']['tmp_name'];
-				$image1Type = $_FILES['image1']['type'];
 
-				// List Of Allowed File Typed To Upload
-				$image1AllowedExtension = array("jpeg", "jpg", "png", "gif");
+				/*
+					$image1 = rand(0, 10000000000) . '_' . $image1Name;
+					move_uploaded_file($image1Tmp, $ItemsDir	 . $image1);
 
-				// Get Avatar Extension
-				$image1Explode 		= explode('.', $image1Name);
-				$image1End 				= end($image1Explode);
-				$image1Extension 	= strtolower($image1End);
+					$image2 = rand(0, 10000000000) . '_' . $image2Name;
+					move_uploaded_file($image2Tmp, $ItemsDir	 . $image2);
+
+					$image3 = rand(0, 10000000000) . '_' . $image3Name;
+					move_uploaded_file($image3Tmp, $ItemsDir	 . $image3);
+
+					$image4 = rand(0, 10000000000) . '_' . $image4Name;
+					move_uploaded_file($image4Tmp, $ItemsDir	 . $image4);
+				*/
+
+				if (isset($_FILES['image1']) && (substr($row['img1'], 0, 10) == $_FILES['image1'] || empty($row['img1']))) {
+					// Upload Variables
+					$image1Name = $_FILES['image1']['name'];
+					$image1Size = $_FILES['image1']['size'];
+					$image1Tmp	= $_FILES['image1']['tmp_name'];
+					$image1Type = $_FILES['image1']['type'];
+
+					// List Of Allowed File Typed To Upload
+					$image1AllowedExtension = array("jpeg", "jpg", "png", "gif");
+
+					// Get Avatar Extension
+					$image1Explode 		= explode('.', $image1Name);
+					$image1End 				= end($image1Explode);
+					$image1Extension 	= strtolower($image1End);
+
+					$image1 = rand(0, 10000000000) . '_' . $image1Name;
+					move_uploaded_file($image1Tmp, $ItemsDir	 . $image1);
+				} else {
+					$avatar2 = $row['img1'];
+				}
 				/* ------------------------------------------------------------------ */
-				// Upload Variables
-				$image2Name = $_FILES['image2']['name'];
-				$image2Size = $_FILES['image2']['size'];
-				$image2Tmp	= $_FILES['image2']['tmp_name'];
-				$image2Type = $_FILES['image2']['type'];
+				if (isset($_FILES['image2']) && (substr($row['img2'], 0, 10) == $_FILES['image2'] || empty($row['img2']))) {
+					// Upload Variables
+					$image2Name = $_FILES['image2']['name'];
+					$image2Size = $_FILES['image2']['size'];
+					$image2Tmp	= $_FILES['image2']['tmp_name'];
+					$image2Type = $_FILES['image2']['type'];
 
-				// List Of Allowed File Typed To Upload
-				$image2AllowedExtension = array("jpeg", "jpg", "png", "gif");
+					// List Of Allowed File Typed To Upload
+					$image2AllowedExtension = array("jpeg", "jpg", "png", "gif");
 
-				// Get Image2 Extension
-				$image2Explode 		= explode('.', $image2Name);
-				$image2End 				= end($image2Explode);
-				$image2Extension 	= strtolower($image2End);
+					// Get Image2 Extension
+					$image2Explode 		= explode('.', $image2Name);
+					$image2End 				= end($image2Explode);
+					$image2Extension 	= strtolower($image2End);
+				} else {
+					$avatar2 = $row['img2'];
+				}
 				/* ------------------------------------------------------------------ */
-				// Upload Variables
-				$image3Name = $_FILES['image3']['name'];
-				$image3Size = $_FILES['image3']['size'];
-				$image3Tmp	= $_FILES['image3']['tmp_name'];
-				$image3Type = $_FILES['image3']['type'];
+				if (isset($_FILES['image3']) && (substr($row['img3'], 0, 10) == $_FILES['image3'] || empty($row['img3']))) {
+					// Upload Variables
+					$image3Name = $_FILES['image3']['name'];
+					$image3Size = $_FILES['image3']['size'];
+					$image3Tmp	= $_FILES['image3']['tmp_name'];
+					$image3Type = $_FILES['image3']['type'];
 
-				// List Of Allowed File Typed To Upload
-				$image3AllowedExtension = array("jpeg", "jpg", "png", "gif");
+					// List Of Allowed File Typed To Upload
+					$image3AllowedExtension = array("jpeg", "jpg", "png", "gif");
 
-				// Get Image3 Extension
-				$image3Explode 		= explode('.', $image3Name);
-				$image3End 				= end($image3Explode);
-				$image3Extension 	= strtolower($image3End);
+					// Get Image3 Extension
+					$image3Explode 		= explode('.', $image3Name);
+					$image3End 				= end($image3Explode);
+					$image3Extension 	= strtolower($image3End);
+				} else {
+					$avatar2 = $row['img3'];
+				}
 				/* ------------------------------------------------------------------ */
-				// Upload Variables
-				$image4Name = $_FILES['image4']['name'];
-				$image4Size = $_FILES['image4']['size'];
-				$image4Tmp	= $_FILES['image4']['tmp_name'];
-				$image4Type = $_FILES['image4']['type'];
+				if (isset($_FILES['image4']) && (substr($row['img4'], 0, 10) == $_FILES['image4'] || empty($row['img4']))) {
+					// Upload Variables
+					$image4Name = $_FILES['image4']['name'];
+					$image4Size = $_FILES['image4']['size'];
+					$image4Tmp	= $_FILES['image4']['tmp_name'];
+					$image4Type = $_FILES['image4']['type'];
 
-				// List Of Allowed File Typed To Upload
-				$image4AllowedExtension = array("jpeg", "jpg", "png", "gif");
+					// List Of Allowed File Typed To Upload
+					$image4AllowedExtension = array("jpeg", "jpg", "png", "gif");
 
-				// Get Image3 Extension
-				$image4Explode 		= explode('.', $image4Name);
-				$image4End 				= end($image4Explode);
-				$image4Extension 	= strtolower($image4End);
+					// Get Image3 Extension
+					$image4Explode 		= explode('.', $image4Name);
+					$image4End 				= end($image4Explode);
+					$image4Extension 	= strtolower($image4End);
+				} else {
+					$avatar2 = $row['img4'];
+				}
 				/* ------------------------------------------------------------------ */
 
 
@@ -1039,20 +1090,8 @@
 
 				if (empty($formErrors)) {
 
-					$avatar2 = rand(0, 10000000000) . '_' . $avatarName;
-					move_uploaded_file($avatarTmp, $ItemsDir	 . $avatar2);
+					
 
-					$image1 = rand(0, 10000000000) . '_' . $image1Name;
-					move_uploaded_file($image1Tmp, $ItemsDir	 . $image1);
-
-					$image2 = rand(0, 10000000000) . '_' . $image2Name;
-					move_uploaded_file($image2Tmp, $ItemsDir	 . $image2);
-
-					$image3 = rand(0, 10000000000) . '_' . $image3Name;
-					move_uploaded_file($image3Tmp, $ItemsDir	 . $image3);
-
-					$image4 = rand(0, 10000000000) . '_' . $image4Name;
-					move_uploaded_file($image4Tmp, $ItemsDir	 . $image4);
 
 
 					if (!empty($avatarName) && empty($image1) && empty($image2) && empty($image3) && empty($image4)) {
