@@ -77,13 +77,15 @@
 									echo "<td>" . $row['Date'] ."</td>";
 									echo "<td> 
 										<a href='members.php?do=Edit&userid=" . $row['UserID'] . "' class='btn btn-success edit-btn'><i class='fa fa-edit'></i> Edit</a>
-										<a href='members.php?do=Delete&userid=" . $row['UserID'] . "' class='btn btn-danger confirm delete-btn'><i class='fa fa-close'></i> Delete </a>
-										<a href='../otherProfile.php?otherid=" . $row['UserID'] . "' target='_blank' class='btn btn-primary'><i class='fa fa-eye'></i> Show </a>";
+										<a href='members.php?do=Delete&userid=" . $row['UserID'] . "' class='btn btn-danger confirm delete-btn'><i class='fa fa-close'></i> Delete </a>";
+										
 										if ($row['RegStatus'] == 0) {
 											echo "<a 
 													href='members.php?do=Activate&userid=" . $row['UserID'] . "' 
 													class='btn btn-info activate'>
 													<i class='fa fa-check'></i> Activate</a>";
+										} else {
+											echo "<a href='../otherProfile.php?otherid=" . $row['UserID'] . "' target='_blank' class='btn btn-primary show-user'><i class='fa fa-eye'></i> Show </a>";
 										}
 									echo "</td>";
 								echo "</tr>";

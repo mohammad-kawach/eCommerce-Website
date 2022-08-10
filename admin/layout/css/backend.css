@@ -389,7 +389,8 @@ h1 {
   padding: 3px 10px;
 }
 
-.activate {
+.activate ,
+.show-user {
   margin-left: 5px;
 }
 
