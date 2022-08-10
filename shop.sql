@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 28, 2022 at 07:03 PM
+-- Generation Time: Aug 10, 2022 at 11:55 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -43,16 +43,9 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`ID`, `Name`, `Description`, `parent`, `Ordering`, `Visibility`, `Allow_Comment`, `Allow_Ads`) VALUES
-(8, 'Hand Made', 'Hand Made Items', 0, 1, 1, 1, 1),
-(9, 'Computers', 'Computers Item', 0, 2, 0, 1, 0),
-(10, 'Cell Phones', 'Cell Phones', 0, 3, 0, 0, 0),
-(11, 'Clothing', 'Clothing And Fashion', 8, 4, 0, 0, 0),
-(12, 'Tools', 'Home Tools', 0, 5, 0, 0, 0),
-(14, 'Blackberry', 'Blackberry Phones', 10, 6, 0, 0, 0),
-(15, 'Hammers', 'Hammers Desc', 12, 7, 0, 0, 0),
-(17, 'Games', 'Hand Made Games ', 12, 8, 0, 0, 0),
-(18, 'Other', 'Contains All Items That Does Not Have Any Category Or It\'s Category Has Not Added Yet', 0, 0, 0, 0, 0),
-(19, 'Video Games', 'A Great PC Game', 0, 10, 0, 0, 0);
+(23, 'Electronics', 'All about Electronics', 0, 0, 0, 0, 0),
+(24, 'Bags', 'All kinds of bags', 0, 0, 0, 0, 0),
+(26, 'Laptops', 'All about Laptops', 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -68,18 +61,6 @@ CREATE TABLE `comments` (
   `item_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `comments`
---
-
-INSERT INTO `comments` (`c_id`, `comment`, `status`, `comment_date`, `item_id`, `user_id`) VALUES
-(15, 'TEST', 1, '2022-04-04', 32, 1),
-(17, 'Test', 1, '2022-04-09', 34, 39),
-(18, 'Test', 1, '2022-04-09', 34, 39),
-(19, 'Test', 1, '2022-04-09', 34, 39),
-(21, 'Good Item', 1, '2022-05-04', 66, 1),
-(22, 'Good Item', 1, '2022-05-04', 66, 1);
 
 -- --------------------------------------------------------
 
@@ -114,34 +95,18 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`Item_ID`, `Name`, `Description`, `Price`, `Add_Date`, `Country_Made`, `Image`, `Status`, `Rating`, `Approve`, `Cat_ID`, `Member_ID`, `tags`, `Count`, `img1`, `img2`, `img3`, `img4`, `Featured`) VALUES
-(32, 'GTA V', 'A Great PC Game', '15', '2022-04-04', 'USA', '', '1', 0, 1, 19, 1, '', 0, NULL, NULL, NULL, NULL, NULL),
-(34, 'GTA IV', 'A Great PC Game', '1', '2022-04-05', 'Syrian Arab Republic , Damascus , AL-Mazza', '', '2', 0, 1, 19, 1, 'pc gaming', -4, NULL, NULL, NULL, NULL, NULL),
-(35, 'Morrowind', 'a shit pc game', '12', '2022-04-05', 'USA', '', '4', 0, 1, 19, 1, 'pc gaming', -4, NULL, NULL, NULL, NULL, NULL),
-(36, 'hammer', 'just hammer', '1', '2022-04-05', 'Syrian Arab Republic , Damascus , AL-Mazza', '', '3', 0, 1, 19, 1, 'hammer', 2, NULL, NULL, NULL, NULL, NULL),
-(37, 'Knife', 'a good knife', '123', '2022-04-05', 'Japan', '', '1', 0, 1, 19, 1, 'Knife', 2, NULL, NULL, NULL, NULL, NULL),
-(38, 'Blackberry 1', 'just blckberry 1', '123', '2022-04-06', 'Syrian Arab Republic , Damascus , AL-Mazza', '', '3', 0, 1, 14, 26, 'mobile,phone,cell phone', NULL, NULL, NULL, NULL, NULL, NULL),
-(41, 'Just Testing', 'Just Testing', '1', '2022-04-11', 'Syrian Arab Republic , Damascus , AL-Mazza', '2138091371_174333.jpg', '1', 0, 1, 19, 1, 'GTA Vasdasdasd', 1, NULL, NULL, NULL, NULL, NULL),
-(42, 'Skyrim', 'A Great PC Game', '22', '2022-04-22', 'Syrian Arab Republic , Damascus , AL-Mazza', '1328827446_90-909966_2k-windows-10-wallpapers-4k.jpg', '1', 0, 1, 19, 1, 'pc gaming,pc,gaming', -60, NULL, NULL, NULL, NULL, NULL),
-(43, 'One Piece', 'A Good Anime', '15', '2022-04-22', 'Japan', '6126314438_trying to have fun.jpg', '1', 0, 1, 19, 1, 'Anime', -48, NULL, NULL, NULL, NULL, NULL),
-(45, 'Last Test', 'Last Test', '200', '2022-04-23', 'USA', '2495668339_Front vs back.jpg', '1', 0, 1, 10, 44, 'Test', 1, NULL, NULL, NULL, NULL, NULL),
-(46, 'Hello', 'Hello Hello Hello', '123', '2022-04-26', 'Syrian Arab Republic , Damascus , AL-Mazza', '2481719101_51-511834_marvel-1080p-wallpaper-spider-man.jpg', '1', 0, 1, 18, 1, 'Hello', 100, '7831507095_', '7803689562_', '2834394737_', '1225878954_', 1),
-(47, 'Morrowindfjk', 'A Great PC Game', '15', '2022-04-28', 'Test', '798005065_childnaruto.jpg', '4', 0, 1, 18, 1, '', 6, NULL, NULL, NULL, NULL, NULL),
-(48, 'GTA Vice City ', 'A Great PC Game', '22', '2022-04-29', 'Syrian Arab Republic , Damascus , AL-Mazza', '1724812200_Grauation Project.jpg', '1', 0, 1, 19, 1, '12222', 12, NULL, NULL, NULL, NULL, NULL),
-(49, 'GTA Vice City ', 'A Great PC Game', '22', '2022-04-29', 'Syrian Arab Republic , Damascus , AL-Mazza', '9657797489_Grauation Project.jpg', '1', 0, 1, 19, 1, '12222', -60, NULL, NULL, NULL, NULL, NULL),
-(50, 'GTA Vice City ', 'A Great PC Game', '22', '2022-04-29', 'Syrian Arab Republic , Damascus , AL-Mazza', '5607733091_Grauation Project.jpg', '1', 0, 1, 19, 1, '12222', 12, NULL, NULL, NULL, NULL, NULL),
-(51, 'other', 'other other', '123', '2022-04-29', 'Syrian Arab Republic , Damascus , AL-Mazza', '8524973815_Kishimoto.jpg', '1', 0, 1, 19, 1, 'other', 11, NULL, NULL, NULL, NULL, NULL),
-(53, 'Grand Torismo', 'A Great PC Game', '15', '2022-04-29', 'Syrian Arab Republic', '2249480490_Inuyashiki.png', '1', 0, 1, 8, 1, 'hammer', 123, '3784391147_', '256198822_', '5739775334_', '6793338987_', 1),
-(60, 'Test image 1', 'Test image 1', '12', '2022-04-29', 'Syrian Arab Republic , Damascus , AL-Mazza', '3287806755_Gaara.jpg', '2', 0, 1, 12, 1, 'test', 0, '851142245_Might Guy Promise.jpg', NULL, NULL, NULL, NULL),
-(61, 'image 1', 'image 1 image 1', '15', '2022-04-29', 'image 1', '7916172373_Grauation Project.jpg', '1', 0, 1, 18, 1, 'image 1', 0, '317855989_Kishimoto.jpg', NULL, NULL, NULL, NULL),
-(63, 'JUST Test', 'test all images', '1', '2022-04-29', 'Syrian Arab Republic', '3532023626_Gaara.jpg', '2', 0, 1, 19, 1, 'test', -1, '969206310_Yugi.jpg', '6374814325_Yugi Card.jpg', '9906633918_wa.jpg', '1374299749_trying to have fun.jpg', NULL),
-(64, 'Hello', 'Hello Hello Hello', '1', '2022-04-29', 'Syrian Arab Republic , Damascus , AL-Mazza', '1735203737_174270.jpg', '4', 0, 1, 19, 35, 'Random', 0, '6902220312_174270.jpg', NULL, NULL, NULL, NULL),
-(65, 'another test', 'another test', '2', '2022-04-29', 'Syrian Arab Republic , Damascus , AL-Mazza', '6341714070_105-1056055_raven-fortnite-battle-royale-8k-wallpaper-fortnite-raven.jpg', '3', 0, 1, 19, 44, 'another test', 0, '7688289801_3283db6bbc69c487c382af2013682da6.jpg', '6049710027_3283db6bbc69c487c382af2013682da6.jpg', '8723654383_3283db6bbc69c487c382af2013682da6.jpg', '4033528290_3283db6bbc69c487c382af2013682da6.jpg', NULL),
-(66, 'Hello Test', 'Hello Test', '123', '2022-04-30', 'Hello Test', '9111063382_2uNvm0.png', '1', 0, 1, 19, 45, 'Hello Test', 0, '3715084668_51-511834_marvel-1080p-wallpaper-spider-man.jpg', '3189048705_90-909966_2k-windows-10-wallpapers-4k.jpg', '7958435280_105-1056055_raven-fortnite-battle-royale-8k-wallpaper-fortnite-raven.jpg', '7958435280_105-1056055_raven-fortnite-battle-royale-8k-wallpaper-fortnite-raven.jpg', NULL),
-(67, 'mohamad test', 'mohamad test', '77', '2022-04-30', 'mohamad test', '7875045646_90-909966_2k-windows-10-wallpapers-4k.jpg', '4', 0, 1, 19, 1, 'asdasd', 0, '2793528788_174280.jpg', '5789152378_320439.jpg', '1232844244_656442.jpg', '1232844244_656442.jpg', NULL),
-(68, 'just anything', 'just anything', '2', '2022-04-30', 'just anything', '110566782_26a9f47856b814bd67c1b458a88047a4.jpg', '3', 0, 1, 8, 1, 'just anything', 0, '212969371_11792.jpg', '5255752663_513993.jpg', '1507747494_11801.jpg', '1507747494_11801.jpg', NULL),
-(69, 'GTA Vice City', 'A Great PC Game', '15', '2022-05-10', 'USA', '5530710254_105-1056055_raven-fortnite-battle-royale-8k-wallpaper-fortnite-raven.jpg', '1', 0, 1, 8, 1, 'test', 1233, '7343308790_11801.jpg', '9336533566_90-909966_2k-windows-10-wallpapers-4k.jpg', '2333612604_26a9f47856b814bd67c1b458a88047a4.jpg', '2333612604_26a9f47856b814bd67c1b458a88047a4.jpg', NULL),
-(70, 'hello hello hello', 'hello hello hello', '123321', '2022-05-12', 'USA', '9687786110_2uNvm0.png', '1', 0, 1, 8, 1, 'hello hello hello', 100, '9837194469_', '1410953718_', '9769008226_', '4167157681_', 1),
-(71, 'featured item', 'the featured item', '123456789', '2022-05-12', 'USA', '48774009_2uNvm0.png', '4', 0, 1, 14, 43, 'featured item', 150, '8695378663_21-210138_rgb-rog-wallpaper-based-on-the-one-from.png', '5579771241_26a9f47856b814bd67c1b458a88047a4.jpg', '9060915044_51-511834_marvel-1080p-wallpaper-spider-man.jpg', '7114307734_90-909966_2k-windows-10-wallpapers-4k.jpg', 1);
+(75, 'Anker PowerBank', '20,000 mAh , 18 W', '45', '2022-08-08', 'Syria', '6872477502_1.jpg', '1', 0, 1, 23, 49, 'Battery , Electronics , powerbank , power', 75, '2523359065_photo_2022-08-06_15-15-17.jpg', '6915738427_photo_2022-08-06_15-15-18.jpg', '1806369346_photo_2022-08-06_15-15-20.jpg', '9933937178_photo_2022-08-06_15-15-22.jpg', 1),
+(80, 'HAMMERHEAD BT', 'Fantastic Headphones From Razer', '35', '2022-08-08', 'Egypt', '1710090454_1.jpg', '1', 0, 1, 23, 49, 'air set, headphones', 70, '2236242519_photo_2022-08-06_15-18-49.jpg', '7950049186_photo_2022-08-06_15-18-50.jpg', '7231993946_photo_2022-08-06_15-18-57.jpg', '9222360579_photo_2022-08-06_15-18-55.jpg', 0),
+(81, 'JBL Headset 2', 'a great headset for gamers', '100', '2022-08-09', 'Qatar', '7578011319_photo_2022-08-09_15-49-54.jpg', '1', 0, 1, 23, 50, 'headset, headphones', 150, '2504401955_photo_2022-08-09_15-49-54.jpg', '3564625178_photo_2022-08-09_15-49-57.jpg', '6616563335_photo_2022-08-09_15-49-56.jpg', '8738605726_photo_2022-08-09_15-49-55.jpg', 1),
+(82, 'ASUS X541UAK', 'Intel Core i3-6006U , RAM 8GB , 1TB HDD , Intel HD Graphics 520', '320', '2022-08-10', 'Turkey', '9849989613_photo_2022-08-10_11-06-26.jpg', '1', 0, 1, 26, 50, 'Laptop', 25, '2237987502_photo_2022-08-10_11-06-23.jpg', '8676845486_photo_2022-08-10_11-06-21.jpg', '2783983179_photo_2022-08-10_11-06-20.jpg', '3282499721_photo_2022-08-10_11-06-18.jpg', NULL),
+(83, 'HP 15-bw0xx', 'AMD A4-9120 @2.2GHz , 8 GB RAM , 500 GB HDD', '340', '2022-08-10', 'Germany', '1353854687_photo_2022-08-10_11-10-53.jpg', '2', 0, 1, 26, 50, 'Laptop', 55, '2511622609_photo_2022-08-10_11-10-54.jpg', '209822220_photo_2022-08-10_11-10-56.jpg', '8207094411_photo_2022-08-10_11-10-57.jpg', '2091620032_photo_2022-08-10_11-10-59.jpg', NULL),
+(84, 'Lenovo W540', 'Intel Core i7-4900MQ , RAM 8GB , 256 GB SSD , NVIDIA Quadro K2100M', '390', '2022-08-10', 'Albania', '436400771_photo_2022-08-10_11-17-30.jpg', '1', 0, 1, 26, 50, 'Laptop', 30, '5357280533_photo_2022-08-10_11-17-28.jpg', '7056046483_photo_2022-08-10_11-17-27.jpg', '8375894213_photo_2022-08-10_11-17-25.jpg', '8795920360_photo_2022-08-10_11-17-24.jpg', NULL),
+(85, 'LENOVO 81LW', 'Ryzen 3-3200U , 8 RAM , 500GB TB , AMD Radeon Vega 3', '400', '2022-08-10', 'USA', '7046929116_1.jpg', '1', 0, 1, 26, 50, 'Laptop', 100, '8126781770_photo_2022-08-10_11-22-24.jpg', '3943460231_photo_2022-08-10_11-22-22.jpg', '225311240_photo_2022-08-10_11-22-21.jpg', '5980812381_photo_2022-08-10_11-22-20.jpg', 0),
+(86, 'TOSHIBA A50-C', 'Intel Core i7-5500U , 12GB RAM , 500GB HDD , NVIDIA GeForce 930M', '420', '2022-08-10', 'Canada', '5823475535_1.jpg', '1', 0, 1, 26, 50, 'Laptop', 15, '8945371845_photo_2022-08-10_11-27-00.jpg', '4808990008_photo_2022-08-10_11-26-58.jpg', '2141583019_photo_2022-08-10_11-26-55.jpg', '7565631039_photo_2022-08-10_11-26-51.jpg', NULL),
+(87, 'Lenovo Y2', 'Intel Core i5-7200U , RAM 8GB, 180GB SSD , NVIDIA GeForce 940MX', '550', '2022-08-10', 'Saudi', '6449960622_1.jpg', '1', 0, 1, 26, 50, 'Laptop', 200, '7133772644_photo_2022-08-10_11-32-34.jpg', '3856695753_photo_2022-08-10_11-32-32.jpg', '8241550282_photo_2022-08-10_11-32-30.jpg', '3546783385_photo_2022-08-10_11-32-25.jpg', NULL),
+(88, 'DELL 15 XPS', 'Intel Core i5-6300HQ , 8GB RAM , 500 GB SSD , NVIDIA GeForce GTX 960', '500', '2022-08-10', 'Ukraine', '7339600755_photo_2022-08-10_12-20-26.jpg', '1', 0, 1, 26, 51, 'Laptop', 25, '1892775117_photo_2022-08-10_12-20-55.jpg', '9241003243_photo_2022-08-10_12-20-47.jpg', '494458776_photo_2022-08-10_12-20-44.jpg', '7968804141_photo_2022-08-10_12-20-43.jpg', NULL),
+(89, 'Lenovo Bag', 'A great Bag For Laptops', '50', '2022-08-10', 'Japan', '6615732108_1.jpg', '2', 0, 1, 24, 51, 'bag , laptop', 5, '997721493_photo_2022-08-10_12-33-05.jpg', '6033423374_photo_2022-08-10_12-33-03.jpg', '9538918136_photo_2022-08-10_12-33-02.jpg', '4572742978_photo_2022-08-10_12-33-01.jpg', NULL),
+(90, 'G203 LightSync', 'A great gaming mouse', '35', '2022-08-10', 'Lebanon', '7993732074_1.jpg', '1', 0, 1, 23, 51, 'mouse,gaming mouse,gaming', 75, '8543819261_photo_2022-08-10_12-39-10.jpg', '416137362_photo_2022-08-10_12-39-08.jpg', '8355613027_photo_2022-08-10_12-39-07.jpg', '6159897344_photo_2022-08-10_12-39-06.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -164,59 +129,10 @@ CREATE TABLE `notifications` (
 --
 
 INSERT INTO `notifications` (`notification_id`, `u_id`, `item_id`, `comment_id`, `user_approve`, `out_of_stock`, `order_id`) VALUES
-(1, 45, NULL, NULL, 1, NULL, NULL),
-(3, 1, NULL, NULL, 1, NULL, NULL),
-(16, 45, 66, NULL, NULL, NULL, NULL),
-(17, 45, 66, NULL, NULL, NULL, NULL),
-(18, 1, 67, NULL, NULL, NULL, NULL),
-(19, 1, 68, NULL, NULL, NULL, NULL),
-(20, NULL, NULL, NULL, NULL, NULL, NULL),
-(21, NULL, NULL, NULL, NULL, NULL, NULL),
-(22, NULL, NULL, NULL, NULL, NULL, NULL),
-(23, 1, NULL, NULL, NULL, NULL, 1),
-(24, 1, 48, NULL, NULL, NULL, NULL),
-(25, 1, 53, NULL, NULL, NULL, NULL),
-(26, 1, 51, NULL, NULL, NULL, NULL),
-(27, 1, 49, NULL, NULL, NULL, NULL),
-(28, 1, 50, NULL, NULL, NULL, NULL),
-(30, 1, NULL, NULL, NULL, NULL, 5),
-(31, 24, NULL, NULL, NULL, NULL, 6),
-(32, 24, NULL, NULL, NULL, NULL, 7),
-(33, 1, NULL, NULL, NULL, NULL, 19),
-(34, 1, NULL, NULL, NULL, NULL, 18),
-(35, 1, 63, NULL, NULL, 1, NULL),
-(36, 1, 68, NULL, NULL, 1, NULL),
-(37, 1, 61, NULL, NULL, 1, NULL),
-(38, 45, 66, NULL, NULL, 1, NULL),
-(39, 1, NULL, NULL, NULL, NULL, 29),
-(40, 1, NULL, NULL, NULL, NULL, 28),
-(41, 24, NULL, NULL, NULL, NULL, 27),
-(42, 24, NULL, NULL, NULL, NULL, 26),
-(43, 24, NULL, NULL, NULL, NULL, 25),
-(44, 24, NULL, NULL, NULL, NULL, 24),
-(45, 24, NULL, NULL, NULL, NULL, 23),
-(46, 1, NULL, NULL, NULL, NULL, 22),
-(47, 1, NULL, NULL, NULL, NULL, 21),
-(48, 1, NULL, NULL, NULL, NULL, 20),
-(49, 1, NULL, NULL, NULL, NULL, 17),
-(50, 1, NULL, NULL, NULL, NULL, 16),
-(51, 1, NULL, NULL, NULL, NULL, 15),
-(52, 1, NULL, NULL, NULL, NULL, 14),
-(53, 1, NULL, NULL, NULL, NULL, 13),
-(54, 1, NULL, NULL, NULL, NULL, 12),
-(55, 1, NULL, NULL, NULL, NULL, 11),
-(56, 1, NULL, NULL, NULL, NULL, 10),
-(57, 1, NULL, NULL, NULL, NULL, 9),
-(58, 1, NULL, NULL, NULL, NULL, 8),
-(59, 44, 65, NULL, NULL, 1, NULL),
-(60, 1, 60, NULL, NULL, 1, NULL),
-(61, 35, 64, NULL, NULL, 1, NULL),
-(62, 1, 69, NULL, NULL, NULL, NULL),
-(63, 1, 70, NULL, NULL, NULL, NULL),
-(64, 1, NULL, NULL, NULL, NULL, 33),
-(65, 1, NULL, NULL, NULL, NULL, 32),
-(66, 1, NULL, NULL, NULL, NULL, 31),
-(67, 1, NULL, NULL, NULL, NULL, 30);
+(70, 49, NULL, NULL, 1, NULL, NULL),
+(71, 49, 75, NULL, NULL, NULL, NULL),
+(72, 50, NULL, NULL, 1, NULL, NULL),
+(73, 51, NULL, NULL, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -236,42 +152,6 @@ CREATE TABLE `orders` (
   `approve` tinyint(1) DEFAULT NULL,
   `date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`order_id`, `user_id`, `country`, `city`, `address`, `phone`, `items_arr`, `price`, `approve`, `date`) VALUES
-(1, 1, 'Syrian Arab Republic', 'homs', 'syria homs akrama', 954250979, 'a:1:{i:0;a:4:{s:7:\"item_id\";s:2:\"64\";s:9:\"item_name\";s:5:\"Hello\";s:10:\"item_price\";s:1:\"1\";s:13:\"item_quantity\";s:2:\"10\";}}', 10, 1, '2022-04-10'),
-(5, 1, 'Syrian Arab Republic', 'homs', 'syria homs akrama', 123456789, 'a:4:{i:0;a:4:{s:7:\"item_id\";s:2:\"64\";s:9:\"item_name\";s:5:\"Hello\";s:10:\"item_price\";s:1:\"1\";s:13:\"item_quantity\";s:1:\"3\";}i:1;a:4:{s:7:\"item_id\";s:2:\"45\";s:9:\"item_name\";s:9:\"Last Test\";s:10:\"item_price\";s:3:\"200\";s:13:\"item_quantity\";s:1:\"1\";}i:2;a:4:{s:7:\"item_id\";s:2:\"66\";s:9:\"item_name\";s:10:\"Hello Test\";s:10:\"item_price\";s:3:\"123\";s:13:\"item_quantity\";s:1:\"1\";}i:3;a:4:{s:7:\"item_id\";s:2:\"65\";s:9:\"item_name\";s:12:\"another test\";s:10:\"item_price\";s:1:\"2\";s:13:\"item_quantity\";s:1:\"9\";}}', 344, 1, '2022-04-25'),
-(6, 24, 'Test', 'Test', 'Test', 123456789, 'a:7:{i:0;a:4:{s:7:\"item_id\";s:2:\"68\";s:9:\"item_name\";s:13:\"just anything\";s:10:\"item_price\";s:1:\"2\";s:13:\"item_quantity\";s:1:\"1\";}i:1;a:4:{s:7:\"item_id\";s:2:\"66\";s:9:\"item_name\";s:10:\"Hello Test\";s:10:\"item_price\";s:3:\"123\";s:13:\"item_quantity\";s:1:\"1\";}i:2;a:4:{s:7:\"item_id\";s:2:\"65\";s:9:\"item_name\";s:12:\"another test\";s:10:\"item_price\";s:1:\"2\";s:13:\"item_quantity\";s:1:\"4\";}i:3;a:4:{s:7:\"item_id\";s:2:\"64\";s:9:\"item_name\";s:5:\"Hello\";s:10:\"item_price\";s:1:\"1\";s:13:\"item_quantity\";s:2:\"11\";}i:4;a:4:{s:7:\"item_id\";s:2:\"61\";s:9:\"item_name\";s:7:\"image 1\";s:10:\"item_price\";s:2:\"15\";s:13:\"item_quantity\";s:2:\"13\";}i:5;a:4:{s:7:\"item_id\";s:2:\"46\";s:9:\"item_name\";s:5:\"Hello\";s:10:\"item_price\";s:3:\"123\";s:13:\"item_quantity\";s:2:\"12\";}i:6;a:4:{s:7:\"item_id\";s:2:\"34\";s:9:\"item_name\";s:6:\"GTA IV\";s:10:\"item_price\";s:1:\"1\";s:13:\"item_quantity\";s:1:\"1\";}}', 1816, 1, '2022-05-01'),
-(7, 24, 'Test', 'Test', 'Test', 123123123, 'a:1:{i:0;a:4:{s:7:\"item_id\";s:2:\"61\";s:9:\"item_name\";s:7:\"image 1\";s:10:\"item_price\";s:2:\"15\";s:13:\"item_quantity\";s:1:\"4\";}}', 60, 1, '2022-05-05'),
-(8, 1, 'Test', 'Test', 'Test', 2147483647, 'a:1:{i:0;a:4:{s:7:\"item_id\";s:2:\"65\";s:9:\"item_name\";s:12:\"another test\";s:10:\"item_price\";s:1:\"2\";s:13:\"item_quantity\";s:2:\"12\";}}', 24, 1, '2022-05-05'),
-(9, 1, 'Test', 'Test', 'Test', 112233, 'a:1:{i:0;a:4:{s:7:\"item_id\";s:2:\"66\";s:9:\"item_name\";s:10:\"Hello Test\";s:10:\"item_price\";s:3:\"123\";s:13:\"item_quantity\";s:1:\"1\";}}', 123, 1, '2022-05-05'),
-(10, 1, 'echo &#39;&#39;', 'echo &#39;&#39;;', 'echo &#39;&#39;;', 11447788, 'a:1:{i:0;a:4:{s:7:\"item_id\";s:2:\"66\";s:9:\"item_name\";s:10:\"Hello Test\";s:10:\"item_price\";s:3:\"123\";s:13:\"item_quantity\";s:1:\"1\";}}', 123, 1, '2022-05-05'),
-(11, 1, 'USA', 'homs', 'syria homs akrama', 211212, 'a:1:{i:0;a:4:{s:7:\"item_id\";s:2:\"45\";s:9:\"item_name\";s:9:\"Last Test\";s:10:\"item_price\";s:3:\"200\";s:13:\"item_quantity\";s:1:\"1\";}}', 200, 1, '2022-05-05'),
-(12, 1, 'USA', 'homs', 'syria homs akrama', 555555, 'a:1:{i:0;a:4:{s:7:\"item_id\";s:2:\"65\";s:9:\"item_name\";s:12:\"another test\";s:10:\"item_price\";s:1:\"2\";s:13:\"item_quantity\";s:1:\"4\";}}', 8, 1, '2022-05-05'),
-(13, 1, 'echo &#39;&#39;;', 'echo &#39;&#39;;', 'echo &#39;&#39;;', 1222121212, 'a:1:{i:0;a:4:{s:7:\"item_id\";s:2:\"64\";s:9:\"item_name\";s:5:\"Hello\";s:10:\"item_price\";s:1:\"1\";s:13:\"item_quantity\";s:2:\"12\";}}', 12, 1, '2022-05-05'),
-(14, 1, 'USA', 'homs', 'syria homs akrama', 2147483647, 'a:1:{i:0;a:4:{s:7:\"item_id\";s:2:\"64\";s:9:\"item_name\";s:5:\"Hello\";s:10:\"item_price\";s:1:\"1\";s:13:\"item_quantity\";s:1:\"3\";}}', 3, 1, '2022-05-05'),
-(15, 1, 'USA', 'homs', 'syria homs akrama', 2147483647, 'a:1:{i:0;a:4:{s:7:\"item_id\";s:2:\"66\";s:9:\"item_name\";s:10:\"Hello Test\";s:10:\"item_price\";s:3:\"123\";s:13:\"item_quantity\";s:1:\"1\";}}', 123, 1, '2022-05-05'),
-(16, 1, 'Syrian Arab Republic', 'homs', 'syria homs akrama', 12121212, 'a:1:{i:0;a:4:{s:7:\"item_id\";s:2:\"65\";s:9:\"item_name\";s:12:\"another test\";s:10:\"item_price\";s:1:\"2\";s:13:\"item_quantity\";s:1:\"3\";}}', 6, 1, '2022-05-05'),
-(17, 1, 'Syrian Arab Republic', 'homs', 'syria homs akrama', 12121212, 'a:1:{i:0;a:4:{s:7:\"item_id\";s:2:\"66\";s:9:\"item_name\";s:10:\"Hello Test\";s:10:\"item_price\";s:3:\"123\";s:13:\"item_quantity\";s:1:\"1\";}}', 123, 1, '2022-05-05'),
-(18, 1, 'Syrian Arab Republic', 'homs', 'syria homs akrama', 1212121212, 'a:1:{i:0;a:4:{s:7:\"item_id\";s:2:\"66\";s:9:\"item_name\";s:10:\"Hello Test\";s:10:\"item_price\";s:3:\"123\";s:13:\"item_quantity\";s:1:\"1\";}}', 123, 1, '2022-05-05'),
-(19, 1, 'Syrian Arab Republic', 'homs', 'syria homs akrama', 2147483647, 'a:1:{i:0;a:4:{s:7:\"item_id\";s:2:\"65\";s:9:\"item_name\";s:12:\"another test\";s:10:\"item_price\";s:1:\"2\";s:13:\"item_quantity\";s:1:\"3\";}}', 6, 1, '2022-05-05'),
-(20, 1, 'USA', 'homs', 'syria homs akrama', 123123, 'a:3:{i:0;a:4:{s:7:\"item_id\";s:2:\"64\";s:9:\"item_name\";s:5:\"Hello\";s:10:\"item_price\";s:1:\"1\";s:13:\"item_quantity\";s:1:\"6\";}i:1;a:4:{s:7:\"item_id\";s:2:\"65\";s:9:\"item_name\";s:12:\"another test\";s:10:\"item_price\";s:1:\"2\";s:13:\"item_quantity\";s:1:\"3\";}i:2;a:4:{s:7:\"item_id\";s:2:\"66\";s:9:\"item_name\";s:10:\"Hello Test\";s:10:\"item_price\";s:3:\"123\";s:13:\"item_quantity\";s:1:\"1\";}}', 135, 1, '2022-05-06'),
-(21, 1, 'USA', 'homs', 'syria homs akrama', 1111111, 'a:1:{i:0;a:4:{s:7:\"item_id\";s:2:\"64\";s:9:\"item_name\";s:5:\"Hello\";s:10:\"item_price\";s:1:\"1\";s:13:\"item_quantity\";s:2:\"12\";}}', 12, 1, '2022-05-06'),
-(22, 1, 'USA', 'homs', 'syria homs akrama', 112223333, 'a:1:{i:0;a:4:{s:7:\"item_id\";s:2:\"65\";s:9:\"item_name\";s:12:\"another test\";s:10:\"item_price\";s:1:\"2\";s:13:\"item_quantity\";s:2:\"23\";}}', 46, 1, '2022-05-06'),
-(23, 24, 'USA', 'homs', 'syria homs akrama', 111111, 'a:1:{i:0;a:4:{s:7:\"item_id\";s:2:\"34\";s:9:\"item_name\";s:6:\"GTA IV\";s:10:\"item_price\";s:1:\"1\";s:13:\"item_quantity\";s:1:\"2\";}}', 2, 1, '2022-05-06'),
-(24, 24, 'USA', 'homs', 'syria homs akrama', 121212, 'a:1:{i:0;a:4:{s:7:\"item_id\";s:2:\"35\";s:9:\"item_name\";s:9:\"Morrowind\";s:10:\"item_price\";s:2:\"12\";s:13:\"item_quantity\";s:1:\"2\";}}', 24, 1, '2022-05-06'),
-(25, 24, 'Hello', 'homs', 'syria homs akrama', 1212122122, 'a:1:{i:0;a:4:{s:7:\"item_id\";s:2:\"63\";s:9:\"item_name\";s:9:\"JUST Test\";s:10:\"item_price\";s:1:\"1\";s:13:\"item_quantity\";s:1:\"1\";}}', 1, 1, '2022-05-06'),
-(26, 24, 'USA', 'homs', 'syria homs akrama', 121212, 'a:1:{i:0;a:4:{s:7:\"item_id\";s:2:\"68\";s:9:\"item_name\";s:13:\"just anything\";s:10:\"item_price\";s:1:\"2\";s:13:\"item_quantity\";s:1:\"1\";}}', 2, 1, '2022-05-06'),
-(27, 24, 'USA', 'homs', 'syria homs akrama', 123321, 'a:2:{i:0;a:4:{s:7:\"item_id\";s:2:\"61\";s:9:\"item_name\";s:7:\"image 1\";s:10:\"item_price\";s:2:\"15\";s:13:\"item_quantity\";s:3:\"123\";}i:1;a:4:{s:7:\"item_id\";s:2:\"60\";s:9:\"item_name\";s:12:\"Test image 1\";s:10:\"item_price\";s:2:\"12\";s:13:\"item_quantity\";s:1:\"1\";}}', 1845, 1, '2022-05-06'),
-(28, 1, 'USA', 'homs', 'syria homs akrama', 112233, 'a:1:{i:0;a:4:{s:7:\"item_id\";s:2:\"64\";s:9:\"item_name\";s:5:\"Hello\";s:10:\"item_price\";s:1:\"1\";s:13:\"item_quantity\";s:1:\"1\";}}', 1, 1, '2022-05-06'),
-(29, 1, 'asdasd', 'homs', 'syria homs akrama', 2147483647, 'a:1:{i:0;a:4:{s:7:\"item_id\";s:2:\"66\";s:9:\"item_name\";s:10:\"Hello Test\";s:10:\"item_price\";s:3:\"123\";s:13:\"item_quantity\";s:1:\"1\";}}', 123, 1, '2022-05-06'),
-(30, 1, 'USA', 'homs', 'syria homs akrama', 1212121212, 'a:1:{i:0;a:4:{s:7:\"item_id\";s:2:\"64\";s:9:\"item_name\";s:5:\"Hello\";s:10:\"item_price\";s:1:\"1\";s:13:\"item_quantity\";s:1:\"9\";}}', 9, 1, '2022-05-08'),
-(31, 1, 'Syrian Arab Republic', 'homs', 'syria homs akrama', 123321, 'a:1:{i:0;a:4:{s:7:\"item_id\";s:2:\"65\";s:9:\"item_name\";s:12:\"another test\";s:10:\"item_price\";s:1:\"2\";s:13:\"item_quantity\";s:2:\"50\";}}', 100, 1, '2022-05-10'),
-(32, 1, 'USA', 'homs', 'syria homs akrama', 223334, 'a:3:{i:0;a:4:{s:7:\"item_id\";s:2:\"60\";s:9:\"item_name\";s:12:\"Test image 1\";s:10:\"item_price\";s:2:\"12\";s:13:\"item_quantity\";s:1:\"1\";}i:1;a:4:{s:7:\"item_id\";s:2:\"64\";s:9:\"item_name\";s:5:\"Hello\";s:10:\"item_price\";s:1:\"1\";s:13:\"item_quantity\";s:1:\"1\";}i:2;a:4:{s:7:\"item_id\";s:2:\"45\";s:9:\"item_name\";s:9:\"Last Test\";s:10:\"item_price\";s:3:\"200\";s:13:\"item_quantity\";s:1:\"1\";}}', 12, 1, '2022-05-11'),
-(33, 1, 'USA', 'homs', 'syria homs akrama', 111222333, 'a:1:{i:0;a:4:{s:7:\"item_id\";s:2:\"64\";s:9:\"item_name\";s:5:\"Hello\";s:10:\"item_price\";s:1:\"1\";s:13:\"item_quantity\";s:1:\"1\";}}', 1, 1, '2022-05-11');
 
 -- --------------------------------------------------------
 
@@ -297,22 +177,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`UserID`, `Username`, `Password`, `Email`, `FullName`, `GroupID`, `TrustStatus`, `RegStatus`, `Date`, `avatar`) VALUES
-(1, 'Mohamad', '601f1889667efaebb33b8c12572835da3f027f78', 'mohamad@gmail.com', 'Mohammad Kawach', 1, 0, 1, '2022-03-01', '9981521789_iron-man-minimalism-4k-sp.jpg'),
-(24, 'Ahmed', '601f1889667efaebb33b8c12572835da3f027f78', 'ahmed@ahmed.com', 'Ahmed Sameh', 0, 0, 1, '2022-03-02', ''),
-(25, 'Gamal', '601f1889667efaebb33b8c12572835da3f027f78', 'Gamal@mmm.com', 'Gamal Ahmed', 0, 0, 1, '2022-03-09', ''),
-(26, 'Sameh', '601f1889667efaebb33b8c12572835da3f027f78', 's123@s.com', 'Sameh Ahmed', 0, 0, 1, '2022-03-15', ''),
-(28, 'Khaled', '601f1889667efaebb33b8c12572835da3f027f78', 'Khaled@Khaled.com', 'Khaled Ali', 0, 0, 1, '2022-03-22', '7835874209_656442.jpg'),
-(33, 'Thomas', '601f1889667efaebb33b8c12572835da3f027f78', 'thomas@gmail.com', 'Thomas Angelo', 0, 0, 1, '2022-04-02', '373218826_55.jpg'),
-(35, 'Test', 'ccbe91b1f19bd31a1365363870c0eec2296a61c1', 'j-kaoush@scs-net.sy', 'TestTest', 0, 0, 1, '2022-04-09', '3469244561_raised on hardwork.jpg'),
-(36, 'asdasd', '99baee504a1fe91a07bc66b6900bd39874191889', 'mohmad.kawach.777@gmail.com', 'Ali Daie', 0, 0, 1, '2022-04-09', '7278105569_Yugi Card.jpg'),
-(37, 'testteste', '82ab84c9a03ace51218f8f3eff340c8e65feb6ea', 'ali@gmail.com', 'testtestetesttestetestteste', 0, 0, 1, '2022-04-09', '7350382355_250865408_237362391718433_7422499132658687714_n.jpg'),
-(38, 'test2', '00ea1da4192a2030f9ae023de3b3143ed647bbab', 'mohmad.kawach.777@gmail.com', 'test2test2test2test2', 0, 0, 1, '2022-04-09', '3908707618_childnaruto.jpg'),
-(39, 'Last One', '601f1889667efaebb33b8c12572835da3f027f78', 'lastone@gmail.com', 'i am the last one of them all', 0, 0, 1, '2022-04-09', '9430518763_Wallpaper.jpg'),
-(40, 'hello', '601f1889667efaebb33b8c12572835da3f027f78', 'hello@hello.com', 'hello hello', 0, 0, 1, '2022-04-09', '2819335762_FB_IMG_1533762484684.jpg'),
-(41, 'asdasdasdadsasd', 'a8056d6a6c9814c168d8c715737c70e90f0f2ef2', 'asd@asd.com', 'Thomas Angelo', 0, 0, 1, '2022-04-09', '1863404449_FB_IMG_1533762484684.jpg'),
-(43, 'Avatar', '601f1889667efaebb33b8c12572835da3f027f78', 'Avatar@Avatar.com', 'Avatar Avatar', 0, 0, 1, '2022-04-10', '9191533840_Disco-Dingo_WP_4096x2304.jpg'),
-(44, 'testing', '601f1889667efaebb33b8c12572835da3f027f78', 'testing@testing.com', 'testing testing', 0, 0, 1, '2022-04-10', '7992858467_174280.jpg'),
-(45, 'Just Test', '601f1889667efaebb33b8c12572835da3f027f78', 'asd@asd.com', 'Just Test', 0, 0, 1, '2022-04-30', '2605646080_174280.jpg');
+(1, 'Mohamad', '601f1889667efaebb33b8c12572835da3f027f78', 'mohamad@gmail.com', 'Mohammad Kawach', 1, 0, 1, '2022-03-01', '7608303180_admin_avatar.png'),
+(49, 'wael', '601f1889667efaebb33b8c12572835da3f027f78', 'Wael@gmail.com', 'Wael Alsheikh', 0, 0, 1, '2022-08-08', '5648177020_man-face-avatar-cartoon-free-vector.jpg'),
+(50, 'ammar', '601f1889667efaebb33b8c12572835da3f027f78', 'ammar@gmail.com', 'Ammar Alsoleman', 0, 0, 1, '2022-08-09', '4612374502_127626271_176738944113454_8788377206497839260_o.jpg'),
+(51, 'essa', '601f1889667efaebb33b8c12572835da3f027f78', 'essa@gmail.com', 'Essa Albahry', 0, 0, 1, '2022-08-10', '8720485650_128860657_2735170280070275_2469267349259933046_o.jpg');
 
 --
 -- Indexes for dumped tables
@@ -373,37 +241,37 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `Item_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `Item_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'To Identify User', AUTO_INCREMENT=46;
+  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'To Identify User', AUTO_INCREMENT=52;
 
 --
 -- Constraints for dumped tables

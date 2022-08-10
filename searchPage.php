@@ -41,7 +41,8 @@
   <div class="container">
     <?php
       $all = array();
-      $allItems = getAllFrom("*", "items", "", "where Approve = 1 AND Member_ID != {$_SESSION['uid']}", "Item_ID");
+      //$allItems = getAllFrom("*", "items", "", "where Approve = 1 AND Member_ID != {$_SESSION['uid']}", "Item_ID");
+      $allItems = getAllFrom("*", "items", "", "where Approve = 1", "Item_ID");
       if (sizeof($allItems) > 0) {
         foreach ($allItems as $item) {
           $checkName    = stripos($item['Name'], $search) !== false;
@@ -76,13 +77,15 @@
                         echo '<h3><a href="items.php?itemid='. $item['Item_ID'] .'">' . $item['Name'] .'</a></h3>';
                         echo '<p style="margin-bottom: 0px;">' . $item['Description'] . '</p>';
                         ?>
-                        <?php if (isset($_SESSION['uid'])) { ?>
+                        <?php if (isset($_SESSION['uid']) && $_SESSION['uid'] != $item['Member_ID']) { ?>
                         <div>
                           <input type="number" name="quantity" class="quantity" placeholder="max : <?php echo $item['Count']; ?>" min="0" max="<?php echo $item['Count']; ?>" />
                           <input type="hidden" name="hidden_name" value="<?php echo $item['Name']; ?>" />
                           <input type="hidden" name="hidden_price" value="<?php echo $item['Price']; ?>" />
                           <input type="submit" name="add_to_cart" style="margin-bottom: 5px;" class="btn btn-primary btn-sm pull-right" value="Add To Cart" />
                         </div>
+                        <?php } elseif (isset($_SESSION['uid']) && $_SESSION['uid'] == $item['Member_ID']) { ?>
+                          <div class="owns" style="margin-top: 21.44px;">You Own This Item</div>
                         <?php } else { ?>
                           <div class="date" style="margin-top: 10px;margin-bottom: 8px;"><?php echo $item['Add_Date']; ?></div>
                         <?php } ?>
