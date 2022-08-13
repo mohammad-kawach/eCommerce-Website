@@ -217,7 +217,7 @@
 </div>
 <?php
   }
-  include $tpl . 'footerDesig.php';
+  //include $tpl . 'footerDesig.php';
 	include $tpl . 'footer.php';
 	ob_end_flush();
 ?>

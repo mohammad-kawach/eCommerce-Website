@@ -28,6 +28,7 @@
 ?>
 
 <div class="container">
+  <h1 class="flex-center">Order #<?php echo $order['order_id']; ?></h1>
   <div class="col-md-12">   
     <div class="row">
       
@@ -46,7 +47,7 @@
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6 text-right">
               <div class="receipt-right">
-                <h5>eCommerce</h5>
+                <h5 class="shopify">Shopify <i class="fa fa-skyatlas" aria-hidden="true"></i></h5>
                 <p>+1 3649-6589 <i class="fa fa-phone"></i></p>
                 <p>eCommerce@gmail.com <i class="fa fa-envelope-o"></i></p>
                 <p>SYRIA <i class="fa fa-location-arrow"></i></p>
@@ -126,7 +127,7 @@
 
 
 <?php
-    include $tpl . 'footerDesig.php';
+    //include $tpl . 'footerDesig.php';
     }
   }
   

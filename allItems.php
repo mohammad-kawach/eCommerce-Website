@@ -63,7 +63,7 @@
 			foreach ($allItems as $item) {
         $theCount = $item['Count'];
 				echo '<div class="col-sm-6 col-md-3">'; ?>
-					<form method="post" action="index.php?action=add&id=<?php echo $item['Item_ID'] ?>">
+					<form method="post" class="flex-center" action="index.php?action=add&id=<?php echo $item['Item_ID'] ?>">
 						<?php
 						echo '<div class="thumbnail item-box item-size">';
 							if (is_null($item['Count']) || $item['Count'] < 0 || $item['Count'] = 0) {

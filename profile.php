@@ -16,7 +16,7 @@
 			$stmt->execute(array($_SESSION['uid']));
 			$allOrders = $stmt->fetchAll();
 ?>
-<h1 class="text-center">My Profile <?php echo $_SESSION['user']; ?></h1>
+<h1 class="text-center">My Profile <?php //echo $_SESSION['user']; ?></h1>
 <div class="information block">
 	<div class="container">
 		<div class="panel panel-primary">
@@ -175,7 +175,7 @@
 		header('Location: login.php');
 		exit();
 	}
-	include $tpl . 'footerDesig.php';
+	//include $tpl . 'footerDesig.php';
 	include $tpl . 'footer.php';
 	ob_end_flush();
 ?>

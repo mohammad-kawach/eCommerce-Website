@@ -13,6 +13,11 @@ h1 {
   color: #666;
 }
 
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
+
 .img-product {
   min-width: 202.5px;
   max-width: 202.5px;
