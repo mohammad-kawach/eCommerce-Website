@@ -125,6 +125,7 @@ $host   = "localhost";
 $dbname = "shop";
 $user   = "root";
 $pass   = "";
+```
 
 ---
 
